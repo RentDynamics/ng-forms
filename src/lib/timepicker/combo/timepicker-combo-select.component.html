@@ -1,0 +1,18 @@
+<rd-combo-select #comboselect [open]="open" (toggle)="open = $event" class="rd-combo-select">
+
+  <div class="input-group">
+    <input rdComboSelectInput type="text" class="form-control" placeholder="Time" [(ngModel)]="inputNgModel" [disabled]="disabled" (focus)="focus = true" (blur)="onInputBlur()">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button" rdComboSelectToggleBtn unselectable="on"><i class="fa fa-clock-o"></i></button>
+    </span>
+  </div>
+
+  <div class="arrow-box" *ngIf="open && !disabled">
+    <div class="arrow-box-body">
+      <div class="list-items">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+
+</rd-combo-select> 

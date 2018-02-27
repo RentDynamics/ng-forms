@@ -1,0 +1,20 @@
+<rd-combo-select #comboselect [open]="open" (toggle)="open = $event" class="rd-combo-select">
+
+  <div class="input-group" [ngClass]="ngValidateClass">
+
+    <input type="text" class="form-control" placeholder="Date" 
+      [(ngModel)]="inputNgModel" (focus)="focus = true" (blur)="onInputBlur($event)" 
+      rdInputKeyup (onEnter)="onEnterKeyup($event)">
+
+    <span class="input-group-btn">
+      <button [ngClass]="buttonClass" type="button" rdComboSelectToggleBtn><i [ngClass]="buttonIconClass"></i></button>
+    </span>
+
+  </div>
+
+  <div class="arrow-box" *ngIf="open">
+  <!--<div class="arrow-box" [style.display]="open ? 'block' : 'none'">-->
+    <div rdPickmeup [moment]="ngModelMoment" [options]="pickmeupOptions" (onPickmeupChange)="onPickmeupChange($event)"></div>
+  </div>
+
+</rd-combo-select>

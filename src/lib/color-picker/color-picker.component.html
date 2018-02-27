@@ -1,0 +1,9 @@
+<div rdBlur (blur)="toggle.emit(false)">
+
+  <span (click)="onClick($event)">
+    <ng-content select="[rd-color-picker-toggle-button]"></ng-content>
+  </span>
+
+  <ng-content select="[rd-color-picker-dropdown]"></ng-content>
+
+</div>

@@ -36,11 +36,13 @@ module.exports = function(config) {
       {pattern: 'node_modules/@angular/**/*', included: false, watched: false},
       {pattern: 'node_modules/@rd/**/*', included: false, watched: false},
       {pattern: 'node_modules/rxjs/**/*', included: false, watched: false},
-      {pattern: 'node_modules/moment/min/moment.min.js', included: false, watched: false},
-      {pattern: 'node_modules/jssha/src/sha.js', included: true, watched: false},
- 
+      {pattern: 'node_modules/moment/min/moment.min.js', included: true, watched: false},
+      // {pattern: 'node_modules/jquery/dist/jquery.min.js', included: true, watched: false},
+      // {pattern: 'node_modules/fullcalendar/dist/fullcalendar.js', included: true, watched: false},
+      // {pattern: 'node_modules/ng2-file-upload/bundles/ng2-file-upload.umd.min.js', included: false, watched: false},
+
       // 'build/systemjs.config.js',
-      'base/node_modules/jssha/src/sha.js',
+      'base/node_modules/jquery/dist/jquery.min.js',
       'dist/browser-test-shim.js',
 
       //'build/**/*.+(js|js.map|css|html)',

@@ -1,0 +1,24 @@
+<rd-dropdown-builder class="rd-calendar" (toggle)="toggle($event)" [open]="open">
+  <ng-content select="[rd-datepicker-toggle-button]"></ng-content>
+
+  <div inject-dropdown-content>
+    <div class="calendar"></div>
+  </div>
+
+  <div inject-dropdown-sidebar>
+    <div style="display: inline-block; width: 140px; padding-left: 10px; vertical-align: top;">
+      <ng-content select="[rd-datepicker-quick-access-button]"></ng-content>
+    </div>
+  </div>
+
+  <div inject-dropdown-footer>
+    <div class="col-sm-6" style="padding-left: 0; padding-right: 5px;">
+      <p class="label-sm">START</p>
+      <input type="text" [(ngModel)]="startInput" class="form-control" (changed)="onStartInputChanged($event)" />
+    </div>
+    <div class="col-sm-6" style="padding-left: 5px; padding-right: 0;">
+      <p class="label-sm">END</p>
+      <input type="text" [(ngModel)]="endInput" class="form-control" (changed)="onEndInputChanged($event)" />
+    </div>
+  </div>
+</rd-dropdown-builder>

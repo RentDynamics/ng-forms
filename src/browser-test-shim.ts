@@ -24,7 +24,9 @@ System.config({
     'rxjs': 'node:rxjs',
     'main': 'main.js',
     'moment': 'node:moment/min/moment.min.js',
-    'jssha': 'node:jssha/src/sha.js',
+
+    'ng2-file-upload': 'node:ng2-file-upload/bundles/ng2-file-upload.umd.min.js',
+    'fullcalendar': 'node:fullcalendar/dist/fullcalendar.js',
 
     '@rd/core': 'node:@rd/core/bundles/core.umd.min.js',
     '@rd/core/testing': 'node:@rd/core/bundles/core-testing.umd.min.js',

@@ -1,0 +1,13 @@
+<rd-dropdown-builder class="rd-calendar" (toggle)="toggle($event)" [open]="open">
+  <ng-content select="[rd-datepicker-toggle-button]"></ng-content>
+
+  <div inject-dropdown-content>
+    <div class="calendar"></div>
+  </div>
+
+  <div inject-dropdown-sidebar>
+    <div style="display: inline-block; width: 140px; padding-left: 10px; vertical-align: top;">
+      <ng-content select="[rd-datepicker-quick-access-button]"></ng-content>
+    </div>
+  </div>
+</rd-dropdown-builder>

@@ -1,0 +1,11 @@
+  <a (click)="onToggleClick(!open)" [class.active]="open">
+    <ng-content></ng-content>
+  </a>
+
+  <div class="arrow-box" [hidden]="!open">
+    <div style="display: inline-block; width: 210px;">
+      <ng-content select="[inject-dropdown-content]"></ng-content>
+      <ng-content select="[inject-dropdown-footer]"></ng-content>
+    </div>
+    <ng-content select="[inject-dropdown-sidebar]"></ng-content>
+  </div>

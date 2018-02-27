@@ -13,8 +13,10 @@
     "target": "es5",
     "skipLibCheck": false,
     "types": [
-      "toastr",
-      "jssha"
+      "bootstrap",
+      "ckeditor",
+      "jquery",
+      "toastr"
     ],
     "typeRoots": [
       "node_modules/@types"
@@ -24,16 +26,12 @@
       "es2016",
       "dom",
       "es2015"
-    ],
-    "paths": {
-      "/testing": ["./src/testing"]
-    }
+    ]
   },
   "files": [
     "./build/public_api.ts"
   ],
   "include": [
-    "./build/testing/index.ts",
     "./build/**/*.d.ts"
   ],
   "exclude": [

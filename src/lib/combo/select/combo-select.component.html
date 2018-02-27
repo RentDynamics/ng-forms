@@ -1,0 +1,13 @@
+<rd-select-builder #selectBuilder (blur)="toggle.emit(false)">
+
+  <ng-content></ng-content>
+
+</rd-select-builder>
+
+<!--<div>
+  <input type="text" class="filter-option pull-left col-sm-10" [(ngModel)]="inputNgModel" (blur)="onBlur($event)" (focus)="onFocus($event)"
+	  (keydown)="onKeydown($event)" />
+    <span (click)="toggle.emit(!open)" class="btn btn-default col-sm-2">
+        <span class="bs-caret"><span class="caret"></span></span>
+    </span>
+</div>-->

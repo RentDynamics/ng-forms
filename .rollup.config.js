@@ -4,23 +4,22 @@ import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify'
 //paths are relative to the execution path
 
-const fileName = 'core';
-const moduleName = '@rd/core';
-const moduleVersion = '7.0.0';
-
+const fileName = 'forms';
+const moduleName = '@rd/forms';
+const moduleVersion = '';
 
 export default {
     input: `dist/public_api.js`,
     external: [
         '@angular/core',
         '@angular/common',
+        '@angular/http',
+        '@angular/forms',
         '@rd/core',
-        '@rd/forms',
         'moment',
         'moment-range',
         'moment-timezone',
-        'rxjs/Rx',
-        'jssha'
+        'rxjs/Rx'
     ],
     output: {
         name: moduleName,
@@ -35,6 +34,7 @@ export default {
         globals: {
             '@angular/core': 'ng.core',
             '@angular/common': 'ng.common',
+            '@angular/forms': 'ng.forms',
 
             '@rd/core': 'rd.core',
             '@rd/forms': 'rd.forms',

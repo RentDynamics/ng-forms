@@ -1,0 +1,5 @@
+<ul class="dropdown-menu">
+  <rd-bootstrap-filter *ngIf="list && list.length && filterBy" [list]="list" [filterBy]="filterBy" (updateList)="updateList($event)"></rd-bootstrap-filter>
+  <rd-bootstrap-actions-box *ngIf="select?.multiple" [select]="select"></rd-bootstrap-actions-box>
+  <ng-content></ng-content>
+</ul>
