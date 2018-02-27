@@ -4,8 +4,8 @@ import { By } from '@angular/platform-browser';
 import { AfterViewInit, Component, ViewChild, DebugElement } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
-import { CoreApiService, ImmutableService, TextMsgItApiService } from '../core';
-import { CoreApiServiceMock } from '../core/testing';
+import { CoreApiService, ImmutableService, TextMsgItApiService } from '@rd/core';
+import { CoreApiServiceMock } from '@rd/core/testing';
 
 import { UiMaskDirective } from './ui-mask.directive';
 import { RdAngularFormsModule } from './forms.module';
@@ -73,7 +73,7 @@ describe('Directive: UiMask', () => {
   `<input rdUiMask="(999) 999-9999" />`
 })
 export class MockWrapperComponent implements AfterViewInit {
-  /* alternate way you could access directive 
+  /* alternate way you could access directive
     @ViewChild()--works in tests and in production */
   /* you would access it this way via component.directive */
   /* not available until afterViewInit() */

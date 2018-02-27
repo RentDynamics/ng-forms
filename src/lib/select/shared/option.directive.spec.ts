@@ -9,7 +9,7 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { ImmutableService } from '../../../core';
+import { ImmutableService } from '@rd/core';
 
 import { OptionDirective } from './option.directive';
 import { SelectModule } from '../select.module';

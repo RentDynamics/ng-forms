@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "main": "bundles/forms.umd.min.js",
   "repository": "https://github.com/RentDynamics/ng-forms",
-  "typings": "forms.d.ts",
+  "typings": "public_api.d.ts",
   "private": false,
   "author": {
     "name": "rd"
@@ -32,6 +32,7 @@
   "peerDependencies": {
     "@angular/core": ">= 5.0.0",
     "@angular/common": ">= 5.0.0",
+    "@rd/core": ">= 1.0.0",
     "jquery": "3.x",
     "rxjs": ">= 5.0.0"
   },
@@ -79,8 +80,7 @@
     "karma-mocha-reporter": "^2.2.5",
     "karma-phantomjs-launcher": "1.0.4",
     "moment": "^2.20.1",
-    "moment-range": "^3.1.1",
-    "moment-timezone": "^0.5.14",
+    "moment-range": "2.2.0",
     "pickmeup": "2.9.1",
     "rollup": "^0.56.1",
     "rollup-plugin-commonjs": "^8.3.0",

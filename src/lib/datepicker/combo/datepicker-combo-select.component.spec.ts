@@ -11,8 +11,8 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { CoreApiService } from '../../../core';
-import { CoreApiServiceMock } from '../../../core/testing';
+import { CoreApiService } from '@rd/core';
+import { CoreApiServiceMock } from '@rd/core/testing';
 
 import { RdAngularFormsModule } from '../../forms.module';
 import { DatepickerComboSelectComponent } from './datepicker-combo-select.component';

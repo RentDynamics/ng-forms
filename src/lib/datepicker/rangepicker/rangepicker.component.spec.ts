@@ -11,7 +11,7 @@ import {
 } from '@angular/core/testing';
 
 import { RangepickerComponent } from './rangepicker.component';
-import { DatepickerHelper, DatepickerQuickAccessButton, DatepickerToggleButton, DATE_TYPE_ENUM, DropdownBuilderComponent } from '../shared';
+import { DatepickerHelper, DatepickerQuickAccessButton, DatepickerToggleButton, DATE_TYPE_ENUM, DropdownBuilderComponent } from '../shared/index';
 
 let component: TestHostComponent;
 let fixture: ComponentFixture<TestHostComponent>;

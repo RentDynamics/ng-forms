@@ -9,7 +9,7 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { ImmutableService } from '../../../core';
+import { ImmutableService } from '@rd/core';
 
 import { SelectToggleBtnDirective } from './select-toggle-btn.directive';
 import { OptionDirective } from './option.directive';
@@ -20,7 +20,7 @@ import { SelectDirective } from '../select.directive';
   selector: '[rd-mock-toggle-btn]',
   template:
   `
-  
+
   `
 })
 export class MockSelectToggleBtnComponent {

@@ -9,11 +9,11 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { ImmutableService } from '../../core';
+import { ImmutableService } from '@rd/core';
 
 import { SelectModule } from './select.module';
 import { SelectDirective } from './select.directive';
-import { Select, OptionDirective, SelectTitleDirective, SelectToggleBtnDirective } from './shared';
+import { Select, OptionDirective, SelectTitleDirective, SelectToggleBtnDirective } from './shared/index';
 
 let component: MockSelectWrapperComponent;
 let fixture: ComponentFixture<MockSelectWrapperComponent>;

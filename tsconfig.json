@@ -16,6 +16,7 @@
       "bootstrap",
       "ckeditor",
       "jquery",
+      "moment-range",
       "toastr"
     ],
     "typeRoots": [

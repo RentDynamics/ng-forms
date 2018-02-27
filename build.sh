@@ -22,6 +22,7 @@ mkdir $PWD/dist/bundles
 
 # Rollup dist/public_api into bundles/core.umd.min.js w/sourcemaps
 $ROLLUP -c=.rollup.config.js
+$ROLLUP -c=.rollup.config.js --environment UGLIFY
 
 # Copy library package.json + README.md, etc. to ./dist directory
 cp $PWD/package.json $PWD/dist/package.json
