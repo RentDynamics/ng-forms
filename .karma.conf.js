@@ -32,8 +32,8 @@ module.exports = function(config) {
       {pattern: 'node_modules/zone.js/dist/fake-async-test.js', included: true, watched: false},
 
       // GLOBALS
-      { pattern: './node_modules/moment/min/moment.min.js', watched: false },
-      { pattern: './node_modules/moment-range/dist/moment-range.min.js', watched: false },
+      { pattern: 'node_modules/moment/min/moment.min.js', watched: false },
+      { pattern: 'node_modules/moment-range/dist/moment-range.min.js', watched: false },
 
       // Include all Angular dependencies
       {pattern: 'node_modules/ckeditor/**/*', included: false, watched: false},
@@ -74,7 +74,7 @@ module.exports = function(config) {
     preprocessors: {},
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
     autoWatch: true,
     browsers: ['PhantomJS'], /* Chrome_1024x768 */
     singleRun: false
