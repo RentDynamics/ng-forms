@@ -75,9 +75,7 @@ var config = {
 
 if(process.env.UGLIFY){
   /* https://github.com/TrySound/rollup-plugin-uglify */
-  config.plugins.push(uglify()) 
+  config.plugins.push(uglify())
 }
-
-
 
 export default config;
