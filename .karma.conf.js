@@ -74,7 +74,7 @@ module.exports = function(config) {
     preprocessors: {},
     port: 9876,
     colors: true,
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['PhantomJS'], /* Chrome_1024x768 */
     singleRun: false
