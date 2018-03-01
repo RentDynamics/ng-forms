@@ -1,4 +1,7 @@
-import { Component, Input, OnInit, Output, OnChanges, SimpleChange, SimpleChanges, EventEmitter, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, Output, OnChanges, SimpleChange,
+  SimpleChanges, EventEmitter, ViewChild, ViewEncapsulation,
+  InjectionToken } from '@angular/core';
+import {NG_VALUE_ACCESSOR} from '@angular/forms';
 
 declare var moment: any;
 
@@ -12,7 +15,11 @@ import { DATE_TYPE_ENUM } from "../shared/date-type.enum";
   selector: 'rd-datepicker-combo-select',
   templateUrl: './datepicker-combo-select.component.html',
   styleUrls: ['./datepicker-combo-select.component.less'],
-  providers: [new NgModelInputValueAccessor(DatepickerComboSelectComponent)],
+  providers: [{
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: DatepickerComboSelectComponent,
+      multi: true
+  }],
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class DatepickerComboSelectComponent extends NgModelInput implements OnInit, OnChanges {

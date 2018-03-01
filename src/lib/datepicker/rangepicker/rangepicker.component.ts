@@ -20,8 +20,9 @@ import {
     ViewChild,
     OnChanges,
     OnDestroy,
-    SimpleChange
-} from '@angular/core';
+    SimpleChange, InjectionToken
+   } from '@angular/core';
+  import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 declare var moment: any;
 
@@ -32,7 +33,11 @@ import { DatepickerHelper, DatepickerQuickAccessButton, DATE_TYPE_ENUM } from '.
     selector: 'rd-rangepicker',
     templateUrl: './rangepicker.component.html',
     styleUrls: ['./rangepicker.component.less'],
-    providers: [new NgModelInputValueAccessor(RangepickerComponent)]
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: RangepickerComponent,
+        multi: true
+    }]
 })
 export class RangepickerComponent extends DatepickerHelper implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
     @Input() momentFormat: string = 'M/D/Y';

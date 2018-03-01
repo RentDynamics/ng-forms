@@ -1,19 +1,18 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, InjectionToken } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { NgModelInput, NgModelInputValueAccessor } from '../ng-model-input';
 import { Color } from './shared';
-
-export function providers() {
-  return [
-    new NgModelInputValueAccessor(ColorPickerComponent)
-  ];
-}
 
 @Component({
     selector: 'rd-color-picker',
     templateUrl: './color-picker.component.html',
     styleUrls: ['./color-picker.component.less'],
-    providers: providers()
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: ColorPickerComponent,
+        multi: true
+    }]
 })
 export class ColorPickerComponent extends NgModelInput implements OnInit {
     @Input() open: boolean = false;

@@ -1,4 +1,7 @@
-import { Component, OnInit, OnChanges, OnDestroy, SimpleChange, SimpleChanges, Input, Output, EventEmitter, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy, SimpleChange, SimpleChanges,
+  Input, Output, EventEmitter, ViewEncapsulation, ViewChild, InjectionToken
+ } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { NgModelInput, NgModelInputValueAccessor } from '../../ng-model-input';
 import { ComboSelectComponent } from '../../combo';
@@ -10,7 +13,11 @@ declare var moment: any;
   templateUrl: './timepicker-combo-select.component.html',
   styleUrls: ['./timepicker-combo-select.component.less'],
   encapsulation: ViewEncapsulation.None,
-  providers: [new NgModelInputValueAccessor(TimePickerComboSelectComponent)]
+  providers: [{
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: TimePickerComboSelectComponent,
+      multi: true
+  }]
 })
 export class TimePickerComboSelectComponent extends NgModelInput implements OnInit, OnChanges, OnDestroy {
   @Input() min: any;

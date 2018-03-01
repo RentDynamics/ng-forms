@@ -1,18 +1,18 @@
-import { AfterContentInit, Component, ContentChildren, Directive, EventEmitter, forwardRef, HostBinding, OnInit, Output, Provider, QueryList } from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, Directive,
+  EventEmitter, forwardRef, HostBinding, OnInit, Output, Provider, QueryList,
+  InjectionToken } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { NgModelInput, NgModelInputValueAccessor } from '../ng-model-input';
 import { ButtonGroupButtonDirective } from './button-group-button/button-group-button.directive';
 
-export function providers() {
-  return [
-    new NgModelInputValueAccessor(ButtonGroupDirective)
-  ];
-}
-
 @Directive({
     selector: 'rd-button-group',
-    providers: providers()
+    providers: [{
+          provide: NG_VALUE_ACCESSOR,
+          useExisting: ButtonGroupDirective,
+          multi: true
+      }]
 })
 export class ButtonGroupDirective extends NgModelInput implements OnInit, AfterContentInit {
     @ContentChildren(ButtonGroupButtonDirective) buttons: QueryList<ButtonGroupButtonDirective>;

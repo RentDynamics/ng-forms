@@ -1,8 +1,8 @@
 import {
   Component, ChangeDetectorRef, OnInit, OnDestroy, Input, Output, ElementRef,
-  EventEmitter, Directive, HostBinding, HostListener, forwardRef
+  EventEmitter, Directive, HostBinding, HostListener, forwardRef, InjectionToken
 } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { NgModel, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ReplaySubject } from 'rxjs/Rx';
 
 import { equals, isDefined } from '@rd/core';
@@ -13,16 +13,14 @@ import { Select, Option } from './shared';
 
 var count = 1;
 
-export function providers() {
-  return [
-    new NgModelInputValueAccessor(forwardRef(() => SelectDirective))
-  ];
-}
-
 @Directive({
   selector: '[rdSelect]',
   exportAs: 'rdSelect',
-  providers: providers()
+  providers: [{
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: SelectDirective,
+      multi: true
+  }]
 })
 export class SelectDirective extends NgModelInput implements OnInit, Select {
   @Input() multiple?: boolean = false;

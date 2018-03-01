@@ -1,7 +1,7 @@
 {
   "name": "@rd/forms",
   "version": "0.0.0-development",
-  "main": "bundles/forms.umd.min.js",
+  "main": "bundles/forms.umd.js",
   "repository": "https://github.com/RentDynamics/ng-forms",
   "typings": "public_api.d.ts",
   "private": false,

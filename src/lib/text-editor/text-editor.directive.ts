@@ -22,15 +22,20 @@ import {
   ViewChild,
   OnChanges,
   OnDestroy,
-  SimpleChanges
-} from '@angular/core';
+  SimpleChanges, InjectionToken
+ } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { extend } from '@rd/core';
 import { NgModelInput, NgModelInputValueAccessor } from '../ng-model-input';
 
 @Directive({
   selector: 'rd-text-editor, [rd-text-editor]',
-  providers: [new NgModelInputValueAccessor(TextEditorDirective)]
+  providers: [{
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: TextEditorDirective,
+      multi: true
+  }]
 })
 export class TextEditorDirective extends NgModelInput implements OnInit, AfterViewInit, OnDestroy {
   @Input() ngModel: string = null;

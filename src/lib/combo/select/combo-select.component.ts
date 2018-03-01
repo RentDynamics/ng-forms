@@ -1,21 +1,20 @@
-import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, InjectionToken  } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Observer, Subscription } from 'rxjs/Rx';
 
 import { NgModelInputValueAccessor } from '../../ng-model-input';
 import { ComboSelect } from '../shared/combo-select';
 import { KEYCODE, SelectOption } from '../../shared/index';
 
-export function providers() {
-  return [
-    new NgModelInputValueAccessor(ComboSelectComponent)
-  ];
-}
-
 @Component({
   selector: 'rd-combo-select',
   templateUrl: './combo-select.component.html',
   styleUrls: ['./combo-select.component.less'],
-  providers: providers()
+  providers: [{
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: ComboSelectComponent,
+      multi: true
+  }]
 })
 export class ComboSelectComponent extends ComboSelect implements OnInit, OnDestroy {
   @Input() open: boolean = false;
