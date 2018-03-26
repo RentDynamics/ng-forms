@@ -35,7 +35,7 @@
     "@angular/forms": "^5.1.0",
     "@rd/core": "^1.2.1",
     "moment": "^2.20.1",
-    "jquery": "^2.7.1",
+    "jquery": "2.x",
     "rxjs": "^5.5.5"
   },
   "devDependencies": {
@@ -71,7 +71,7 @@
     "husky": "^0.14.3",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
-    "jquery": "^2.7.1",
+    "jquery": "2.x",
     "jssha": "^2.3.1",
     "karma": "~1.7.0",
     "karma-chrome-launcher": "~2.1.1",
