@@ -18,7 +18,7 @@ var config = {
         '@rd/core',
         'moment',
         'moment-range',
-        'rxjs/Rx'
+        'rxjs'
     ],
     output: {
         name: moduleName,
@@ -31,6 +31,7 @@ var config = {
         //     d3: 'https://d3js.org/d3.v4.min'
         // },
         globals: {
+            '@angular/animations': 'ng.animations',
             '@angular/core': 'ng.core',
             '@angular/common': 'ng.common',
             '@angular/forms': 'ng.forms',
@@ -39,6 +40,7 @@ var config = {
             '@rd/forms': 'rd.forms',
 
             'moment': 'moment',
+            'rxjs': 'rxjs'
         },
         // banner: '/* my-library version ' + libraryVersion + ' */',
         // footer: '/* follow me on Twitter! @rich_harris */'

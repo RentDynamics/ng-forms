@@ -4,10 +4,10 @@ import {
     style,
     transition,
     animate,
-    AnimationEntryMetadata
-} from '@angular/core';
+    AnimationTriggerMetadata
+} from '@angular/animations';
 
-export const KENDO_DROPDOWN_ANIMATION: AnimationEntryMetadata = trigger('kendoDropdownAnimation', [
+export const KENDO_DROPDOWN_ANIMATION: AnimationTriggerMetadata = trigger('kendoDropdownAnimation', [
     transition(':leave', [
         style({
             "transform": "translateY(0px)",

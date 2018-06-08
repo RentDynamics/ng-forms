@@ -1,6 +1,6 @@
 import { Directive, Input, Output, EventEmitter } from '@angular/core';
 import { NgForm, NgModel, NgControl } from '@angular/forms';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 
 import { KEYCODE } from './shared';
 

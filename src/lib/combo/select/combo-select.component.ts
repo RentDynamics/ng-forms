@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, InjectionToken  } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Observer, Subscription } from 'rxjs/Rx';
+import { Observer, Subscription } from 'rxjs';
 
 import { NgModelInputValueAccessor } from '../../ng-model-input';
 import { ComboSelect } from '../shared/combo-select';
