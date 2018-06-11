@@ -1,9 +1,11 @@
+
+import {debounceTime, throttleTime} from 'rxjs/operators';
 import {
   Directive, EventEmitter, HostBinding, HostListener, Input, OnInit,
   Output, OnDestroy
 } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { BehaviorSubject, Observable } from 'rxjs/Rx'
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Directive({
   selector: '[rdInputThrottle]',
@@ -25,11 +27,11 @@ export class InputThrottleDirective implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (this.throttleDuration)
-      this.keyup$.throttleTime(this.throttleDuration).subscribe(result => {
+      this.keyup$.pipe(throttleTime(this.throttleDuration)).subscribe(result => {
         this.onStartedTyping.emit(this.ngModel.model);
       })
     if (this.debounceDuration)
-      this.keyup$.debounceTime(this.debounceDuration).subscribe(result => {
+      this.keyup$.pipe(debounceTime(this.debounceDuration)).subscribe(result => {
         this.onFinishedTyping.emit(this.ngModel.model);
         this.isFirstKeyUp = true;
       })

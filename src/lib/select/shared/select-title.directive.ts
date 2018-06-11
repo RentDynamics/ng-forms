@@ -1,3 +1,5 @@
+
+import {debounceTime} from 'rxjs/operators';
 import { AfterViewInit, Directive, Input, Output, OnChanges, EventEmitter, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 
 import { equals } from '@rd/core';
@@ -20,10 +22,10 @@ export class SelectTitleDirective implements OnInit {
     if (!this.select)
       throw Error('Select not provided to SelectTitleDirective');
 
-    this.select.optionChange$.debounceTime(this.DEBOUNCE_TIME).subscribe(newVal => {
+    this.select.optionChange$.pipe(debounceTime(this.DEBOUNCE_TIME)).subscribe(newVal => {
       this.setTitle();
     });
-    this.select.ngModelChange$.debounceTime(this.DEBOUNCE_TIME).subscribe(newVal => {
+    this.select.ngModelChange$.pipe(debounceTime(this.DEBOUNCE_TIME)).subscribe(newVal => {
       this.setTitle();
     });
   }

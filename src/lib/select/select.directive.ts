@@ -3,7 +3,7 @@ import {
   EventEmitter, Directive, HostBinding, HostListener, forwardRef, InjectionToken
 } from '@angular/core';
 import { NgModel, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ReplaySubject } from 'rxjs/Rx';
+import { ReplaySubject } from 'rxjs';
 
 import { equals, isDefined } from '@rd/core';
 
