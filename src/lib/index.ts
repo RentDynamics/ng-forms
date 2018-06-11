@@ -1,4 +1,5 @@
-﻿export {BootstrapSelectComponent,BootstrapSelectModule} from './bootstrap-select/index';
+﻿export {ApiFilter,ApiFilterDirective,ApiFilterGroupDirective,ApiFilterGroupModule} from './api-filter-group/index';
+export {BootstrapSelectComponent,BootstrapSelectModule} from './bootstrap-select/index';
 export {ButtonGroupDirective, ButtonGroupButtonDirective} from './button-group/index';
 export {Color, ColorPickerColorComponent, ColorPickerComponent} from './color-picker/index';
 export {DATE_TYPE_ENUM, DatepickerComboSelectComponent, DatepickerComponent, 
