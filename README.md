@@ -11,7 +11,6 @@
 
 ## @rd/forms
 
-
 [npm-icon]: https://nodei.co/npm/@rd/forms.svg?downloads=true
 [npm-icon-link]: https://npmjs.org/package/@rd/forms
 [circleci-badge]: https://circleci.com/gh/RentDynamics/ng-forms.svg?style=shield
@@ -33,3 +32,9 @@
 [npm-license-image]: https://img.shields.io/npm/l/@rd/forms.svg
 [npm-license-link]: LICENSE
 [license-link]: http://opensource.org/licenses/MIT
+
+todo: documentation...
+
+In order to release this package properly, you must run git add ., followed by npm run commit, in order to format the commit message properly so that when it is merged into master, it will semantically release the new changes based on commit msg type and previous version
+
+Don't forget to expose any new additions publically, by specifically exporting all new additions via the nearest index.ts file
