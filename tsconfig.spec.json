@@ -5,7 +5,11 @@
     "types": [
       "jasmine",
       "node",
-      "jssha"
+      "bootstrap",
+      "ckeditor",
+      "jquery",
+      "moment-range",
+      "toastr"
     ]
   },
   "files": [

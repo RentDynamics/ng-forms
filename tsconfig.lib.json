@@ -12,7 +12,11 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "types": [
-      "jssha"
+      "bootstrap",
+      "ckeditor",
+      "jquery",
+      "moment-range",
+      "toastr"
     ],
     "lib": [
       "dom",

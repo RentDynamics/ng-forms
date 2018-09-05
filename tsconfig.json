@@ -18,6 +18,12 @@
       "dom"
     ],
     "paths": {
+      "@rd/core": [
+        "node_modules/@rd/core/"
+      ],
+      "@rd/core/*": [
+        "node_modules/@rd/core/*"
+      ],
       "forms": [
         "dist/"
       ],

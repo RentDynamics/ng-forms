@@ -17,6 +17,15 @@ module.exports = function (config) {
     files: [
       require('path').join(__dirname, './node_modules/jssha/src/sha.js'),
       require('path').join(__dirname, '../../node_modules/jssha/src/sha.js'),
+
+      { pattern: 'node_modules/moment/min/moment.min.js', watched: false },
+      { pattern: 'node_modules/moment-range/dist/moment-range.min.js', watched: false },
+
+      // Include all Angular dependencies
+      {pattern: 'node_modules/ckeditor/**/*', included: false, watched: false},
+      'node_modules/jquery/dist/jquery.min.js',
+      'node_modules/pickmeup/js/jquery.pickmeup.min.js',
+
     ],
     client: {
       args: config.grep ? ['--grep', config.grep] : [],

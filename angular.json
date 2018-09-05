@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "core": {
+    "forms": {
       "root": ".",
       "sourceRoot": "./src",
       "projectType": "library",
@@ -44,5 +44,5 @@
       }
     }
   },
-  "defaultProject": "core"
+  "defaultProject": "forms"
 }
