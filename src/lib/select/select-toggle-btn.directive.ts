@@ -7,7 +7,7 @@ import { Select } from './select';
 })
 export class SelectToggleBtnDirective implements OnInit {
   @Input() select: Select;
-  @HostListener('click', ['$event']) click() {
+  @HostListener('click', ['$event']) click(event?: any) {
     this.select.open = !this.select.open;
   }
 

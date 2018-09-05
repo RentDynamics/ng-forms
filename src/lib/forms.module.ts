@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RdAngularCoreModule } from '@rd/core';
-import { BootstrapSelectModule } from './bootstrap-select/index';
+import { BootstrapSelectModule } from './bootstrap-select/bootstrap-select.module';
 import { ButtonGroupButtonDirective, ButtonGroupDirective } from './button-group/index';
 import { TextEditorDirective } from './text-editor/index';
 import { ComboSelectModule } from './combo/index';

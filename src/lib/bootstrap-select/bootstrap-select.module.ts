@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { SelectModule } from '../select/select.module';
 import { BootstrapSelectComponent } from './bootstrap-select.component';
-import {
-  BootstrapToggleBtnComponent, BootstrapActionsBoxComponent,
-  BootstrapDropdownMenuComponent, BootstrapFilterComponent
-} from './shared/index';
+import { BootstrapToggleBtnComponent } from './bootstrap-toggle-btn';
+import { BootstrapActionsBoxComponent } from './bootstrap-actions-box';
+import { BootstrapDropdownMenuComponent } from './bootstrap-dropdown-menu';
+import { BootstrapFilterComponent } from './bootstrap-filter';
 
 @NgModule({
   imports: [
@@ -21,11 +21,13 @@ import {
     BootstrapFilterComponent
   ],
   exports: [
+    CommonModule,
     BootstrapSelectComponent,
     BootstrapToggleBtnComponent,
     BootstrapActionsBoxComponent,
     BootstrapDropdownMenuComponent,
-    BootstrapFilterComponent
+    BootstrapFilterComponent,
+    SelectModule
   ]
 })
 export class BootstrapSelectModule { }

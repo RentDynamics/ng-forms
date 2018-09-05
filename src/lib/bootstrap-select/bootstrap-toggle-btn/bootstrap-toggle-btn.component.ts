@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Select } from '../../../select/select';
+import { Select } from '../../select/select';
 
 @Component({
   selector: 'rd-bootstrap-toggle-btn',

@@ -1,6 +1,6 @@
 import { Component, OnInit, forwardRef, Host, Inject, Input, ElementRef } from '@angular/core';
 
-import { Select } from '../../../select/select';
+import { Select } from '../../select/select';
 
 @Component({
   selector: 'rd-bootstrap-actions-box',
