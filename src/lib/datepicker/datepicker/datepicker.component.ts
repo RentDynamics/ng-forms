@@ -25,6 +25,7 @@ import {
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
+declare var $: any;
 declare var moment: any;
 
 import { NgModelInputValueAccessor } from '../../ng-model-input';

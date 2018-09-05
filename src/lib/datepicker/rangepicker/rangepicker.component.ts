@@ -24,6 +24,7 @@ import {
    } from '@angular/core';
   import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
+declare var $: any;
 declare var moment: any;
 
 import { NgModelInputValueAccessor } from '../../ng-model-input';
@@ -58,6 +59,8 @@ export class RangepickerComponent extends DatepickerHelper implements OnInit, Af
     }
 
     ngAfterContentInit() {
+        if(!this.quickAccessBtns)
+            return;
         this.quickAccessBtns.map(quickAccessBtn => {
             quickAccessBtn.active = this.isActiveQuickAccessButton(quickAccessBtn);
             quickAccessBtn.onClick.subscribe(btn => this.onQuickAccessButtonClick(btn));
