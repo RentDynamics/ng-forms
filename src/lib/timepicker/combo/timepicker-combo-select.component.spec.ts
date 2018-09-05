@@ -109,7 +109,7 @@ describe('Component: TimePickerComboSelect', () => {
 
     /* Act */
     component.ngOnInit();
-    let result = component.isValidInput('8:15 am');
+    var result = component.isValidInput('8:15 am');
     fixture.detectChanges();
 
     /* Assert */
