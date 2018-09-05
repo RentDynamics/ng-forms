@@ -58,7 +58,7 @@ describe('Component: Rangepicker', () => {
     fixture = TestBed.createComponent(TestHostComponent);
     component = fixture.componentInstance;
     quickAccessBtnEl = fixture.debugElement.query(By.css('button')); // find hero
-    fixture.detectChanges();
+    // fixture.detectChanges();
   })
 
   it('should create an instance', () => {
