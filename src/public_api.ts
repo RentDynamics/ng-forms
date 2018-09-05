@@ -7,7 +7,7 @@ export * from './lib/blur/blur.module';
 export * from './lib/button-group/button-group.module';
 export * from './lib/color-picker/color-picker.module';
 export * from './lib/combo/combo-select.module';
-// export * from './lib/datepicker/datepicker.module';
+export * from './lib/datepicker/datepicker.module';
 export * from './lib/helpers';
 export * from './lib/input/input.module';
 export * from './lib/ng-model-input';

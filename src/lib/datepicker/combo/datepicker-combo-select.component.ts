@@ -8,7 +8,7 @@ declare var moment: any;
 import { NgModelInput, NgModelInputValueAccessor } from '../../ng-model-input';
 import { ComboSelectComponent } from '../../combo/index';
 import { PickmeupDirective } from '../../shared/index';
-import { DATE_TYPE_ENUM } from "../shared/date-type.enum";
+import { DATE_TYPE_ENUM } from '../shared/date-type.enum';
 
 @Component({
   selector: 'rd-datepicker-combo-select',
@@ -82,7 +82,7 @@ export class DatepickerComboSelectComponent extends NgModelInput implements OnIn
     return true;
   }
 
-  onInputBlur() {
+  onInputBlur(event?: any) {
     this.focus = false;
     this.open = false;
 
@@ -95,7 +95,7 @@ export class DatepickerComboSelectComponent extends NgModelInput implements OnIn
     }
   }
 
-  onEnterKeyup(event) {
+  onEnterKeyup(event?: any) {
     event.target.blur();
   }
 
