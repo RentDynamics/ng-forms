@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input, AfterViewInit} from '@angular/core';
 
 import { equals, isArray } from '@rd/core';
 
@@ -14,15 +14,31 @@ import { Option } from '../../../select/shared/option';
     KENDO_DROPDOWN_ANIMATION
   ]
 })
-export class BootstrapDropdownMenuComponent implements OnInit {
+export class BootstrapDropdownMenuComponent implements AfterViewInit {
   @Input() select: Select;
   @Input() list: any[] = [];
   @Input() filterBy: string;
 
+  // START: These 4 inputs are used for hiding/showing inactive items
+  @Input() showInactiveToggle: boolean = false;
+  @Input() idFieldName: string = 'id';
+  @Input() activeFieldName: string = 'active';
+  @Input() showInactiveItems: boolean = false; // By default, inactive items are hidden
+  // END: These 4 inputs are used for hiding/showing inactive items
+
   constructor() {
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    if (this.showInactiveToggle && !this.showInactiveItems) {
+      // I tried hard to not use a timeout here. I found other solutions but
+      // it required that the 'caller' implement a solution and I didn't want
+      // the 'caller' to have to do anything more than set the @Input's
+      // and it would just work
+      setTimeout(() => {
+        this.hideInactiveItemsOnInit();
+      }, 2000);
+    }
   }
 
   updateList(newVal: { array: any[] }) {
@@ -42,4 +58,39 @@ export class BootstrapDropdownMenuComponent implements OnInit {
       this.select.options.forEach((option: Option) => option.hidden = true);
     }
   }
+
+  hideInactiveItemsOnInit() {
+    if (isArray(this.list) && this.list.length) {
+      this.select.options.forEach((option: Option) => {
+        for (let i = 0; i < this.list.length; i++) {
+          if (equals(this.list[i][this.idFieldName], option.value)) {
+            option.hidden = !this.list[i][this.activeFieldName];
+            break;
+          }
+        }
+      });
+    }
+  }
+
+  activeSwitchChange(event) {
+    if (this.showInactiveToggle) {
+      this.showInactiveItems = !this.showInactiveItems;
+
+      if (isArray(this.list) && this.list.length) {
+        this.select.options.forEach((option: Option) => {
+          for (let i = 0; i < this.list.length; i++) {
+            if (equals(this.list[i][this.idFieldName], option.value)) {
+              if (this.showInactiveItems) {
+                option.hidden = false;
+              } else {
+                option.hidden = !this.list[i][this.activeFieldName];
+              }
+              break;
+            }
+          }
+        });
+      }
+    }
+  }
+
 }
