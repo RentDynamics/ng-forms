@@ -99,12 +99,12 @@ export class DatepickerComboSelectComponent extends NgModelInput implements OnIn
     event.target.blur();
   }
 
-  onPickmeupChange(newVal: any) {
+  onPickmeupChange(newVal?: any) {
     this.setNgModel(newVal);
     this.open = false;
   }
 
-  setNgModel(newVal: any) {
+  setNgModel(newVal?: any) {
     let result: any = newVal;
 
     if (this.outputType === DATE_TYPE_ENUM.STRING) {
@@ -117,7 +117,7 @@ export class DatepickerComboSelectComponent extends NgModelInput implements OnIn
     this.inputNgModel = newVal.format(this.momentFormat);
   }
 
-  ngOnChanges(newVal: SimpleChanges) {
+  ngOnChanges(newVal?: SimpleChanges) {
     let minChanges: SimpleChange = newVal['min'];
     let maxChanges: SimpleChange = newVal['max'];
 
@@ -128,7 +128,7 @@ export class DatepickerComboSelectComponent extends NgModelInput implements OnIn
       this.setMax(maxChanges.currentValue);
   }
 
-  setMin(newVal: any) {
+  setMin(newVal?: any) {
     let result: Date;
 
     if (moment.isMoment(newVal)) {
@@ -140,7 +140,7 @@ export class DatepickerComboSelectComponent extends NgModelInput implements OnIn
     this.pickmeupOptions.min = result;
   }
 
-  setMax(newVal: any) {
+  setMax(newVal?: any) {
     let result: Date;
 
     if (moment.isMoment(newVal)) {
