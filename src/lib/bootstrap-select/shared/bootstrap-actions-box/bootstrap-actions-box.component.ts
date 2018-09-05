@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, Host, Inject, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Select } from '../../../select/shared/select';
 
@@ -18,7 +18,7 @@ export class BootstrapActionsBoxComponent implements OnInit {
   }
 
   selectAll() {
-    let newVal = this.select.options.map(o => o.value);
+    let newVal = this.select.options.filter(o => o.hidden == false).map(o => o.value);
     this.select.setNgModel(newVal);
   }
 
