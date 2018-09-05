@@ -37,8 +37,7 @@
     "@types/ckeditor": "^0.0.45",
     "moment": "^2.20.1",
     "jquery": "2.x",
-    "rxjs": "^6.2.0",
-    "angular2-ui-switch": "1.2.0"
+    "rxjs": "^6.2.0"
   },
   "devDependencies": {
     "@angular-devkit/schematics": "^0.6.8",
