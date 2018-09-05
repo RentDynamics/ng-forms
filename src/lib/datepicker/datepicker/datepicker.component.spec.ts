@@ -10,7 +10,7 @@ import {
 } from '@angular/core/testing';
 
 import { DatepickerComponent } from './datepicker.component';
-import { DropdownBuilderComponent } from '../shared/index';
+import { DropdownBuilderComponent } from '../shared/dropdown-builder/dropdown-builder.component';
 
 let component: DatepickerComponent;
 let fixture: ComponentFixture<DatepickerComponent>;

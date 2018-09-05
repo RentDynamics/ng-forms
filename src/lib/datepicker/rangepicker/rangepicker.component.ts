@@ -27,8 +27,8 @@ import {
 declare var $: any;
 declare var moment: any;
 
-import { NgModelInputValueAccessor } from '../../ng-model-input';
-import { DatepickerHelper, DatepickerQuickAccessButton, DATE_TYPE_ENUM } from '../shared/index';
+import { DatepickerHelper } from '../shared/datepicker-helper';
+import { DatepickerQuickAccessButtonDirective } from '../shared/datepicker-quick-access-button.directive';
 
 @Component({
     selector: 'rd-rangepicker',
@@ -43,7 +43,7 @@ import { DatepickerHelper, DatepickerQuickAccessButton, DATE_TYPE_ENUM } from '.
 export class RangepickerComponent extends DatepickerHelper implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
     @Input() momentFormat: string = 'M/D/Y';
     @Output() change = new EventEmitter();
-    @ContentChildren(DatepickerQuickAccessButton) quickAccessBtns: QueryList<DatepickerQuickAccessButton>;
+    @ContentChildren(DatepickerQuickAccessButtonDirective) quickAccessBtns: QueryList<DatepickerQuickAccessButtonDirective>;
 
     startInput: string;
     endInput: string;
@@ -109,7 +109,7 @@ export class RangepickerComponent extends DatepickerHelper implements OnInit, Af
         this.quickAccessBtns.filter(btn => this.isActiveQuickAccessButton(btn)).forEach(btn => btn.active = true);
     }
 
-  isActiveQuickAccessButton(quickAccessBtn: DatepickerQuickAccessButton) {
+  isActiveQuickAccessButton(quickAccessBtn: DatepickerQuickAccessButtonDirective) {
     let pluginValue = $(this.calendarElem).pickmeup('get_date', false);
 
     if (!pluginValue)
@@ -118,7 +118,7 @@ export class RangepickerComponent extends DatepickerHelper implements OnInit, Af
     return moment(pluginValue).format(this.momentFormat) === moment().add(quickAccessBtn.value, 'd').format(this.momentFormat)
   }
 
-    onQuickAccessButtonClick(quickAccessBtn: DatepickerQuickAccessButton) {
+    onQuickAccessButtonClick(quickAccessBtn: DatepickerQuickAccessButtonDirective) {
         let quickAccessMomentRange = [moment().add(quickAccessBtn.value[0], 'd'), moment().add(quickAccessBtn.value[1], 'd')];
         let quickAccessFormatString: string[] = this.format(quickAccessMomentRange);
         this.setNgModel(quickAccessFormatString);

@@ -11,30 +11,22 @@ import {
 
 import { ImmutableService } from '@rd/core';
 
-import { SelectDropdownDirective } from './select-dropdown.directive';
+import { SelectToggleBtnDirective } from './select-toggle-btn.directive';
 import { OptionDirective } from './option.directive';
-import { SelectModule } from '../select.module';
-import { SelectDirective } from '../select.directive';
+import { SelectModule } from './select.module';
 
 @Component({
+  selector: '[rd-mock-toggle-btn]',
   template:
   `
-<div rdSelect #select="rdSelect" [(ngModel)]="ngModelAry" [multiple]="true" rdBlur (blur)="select.open = false">
-	<button class="btn" rdSelectToggleBtn [select]="select" rdSelectDropdown (dropdown)="dropdown = $event">
-		{{dropdown}}
-  </button>
 
-	<ul rdSelectDropdown [select]="select">
-		<li *ngFor="let unit of units" rdOption #option="rdOption" [select]="select" [dropdown]="unit.address" [value]="unit.id" [class.active]="option.isActive()">{{unit.address}}</li>
-	</ul>
-</div>
   `
 })
-export class MockSelectDropdownComponent {
+export class MockSelectToggleBtnComponent {
 
 }
 
-describe('Directive: SelectDropdown', () => {
+describe('Directive: SelectToggleBtn', () => {
   let select;
   // simple style
   beforeEach(() => {
@@ -51,7 +43,7 @@ describe('Directive: SelectDropdown', () => {
   });
 
   it('should create an instance', inject([ImmutableService], (immutable: ImmutableService) => {
-    let self = new SelectDropdownDirective();
+    let self = new SelectToggleBtnDirective();
     expect(self).toBeTruthy();
   }));
 

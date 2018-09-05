@@ -3,8 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { equals, isArray } from '@rd/core';
 
 import { KENDO_DROPDOWN_ANIMATION } from '../../../shared/kendo-dropdown.animation';
-import { Select } from '../../../select/shared/select';
-import { Option } from '../../../select/shared/option';
+import { Select } from '../../../select/select';
+import { Option } from '../../../select/option';
 
 @Component({
   selector: 'rd-bootstrap-dropdown-menu',

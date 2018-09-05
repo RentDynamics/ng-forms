@@ -12,8 +12,9 @@ import {
 import { ImmutableService } from '@rd/core';
 
 import { OptionDirective } from './option.directive';
-import { SelectModule } from '../select.module';
-import { SelectDirective } from '../select.directive';
+import { SelectModule } from './select.module';
+import { SelectDirective } from './select.directive';
+
 
 describe('Directive: Option', () => {
   let select;

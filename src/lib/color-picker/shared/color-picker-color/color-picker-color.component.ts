@@ -13,7 +13,7 @@ export class ColorPickerColorComponent {
 
   constructor(private colorPickerParent: ColorPickerComponent) { }
 
-  isSelected($event: UIEvent){
+  isSelected($event?: UIEvent){
     return this.colorPickerParent.ngModel && 
       this.colorPickerParent.ngModel.backgroundColor === this.backgroundColor &&
       this.colorPickerParent.ngModel.color === this.color;

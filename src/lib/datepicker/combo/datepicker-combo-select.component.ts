@@ -8,7 +8,6 @@ declare var moment: any;
 import { NgModelInput, NgModelInputValueAccessor } from '../../ng-model-input';
 import { ComboSelectComponent } from '../../combo/index';
 import { PickmeupDirective } from '../../shared/index';
-import { DatepickerToggleButton } from "../shared/datepicker-helper";
 import { DATE_TYPE_ENUM } from "../shared/date-type.enum";
 
 @Component({

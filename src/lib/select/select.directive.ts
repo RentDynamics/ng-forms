@@ -9,7 +9,9 @@ import { equals, isDefined } from '@rd/core';
 
 import { isBlur } from '../helpers';
 import { NgModelInput, NgModelInputValueAccessor } from '../ng-model-input';
-import { Select, Option } from './shared';
+import { Select } from './select';
+import { Option } from './option';
+
 
 var count = 1;
 
