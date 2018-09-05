@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { ElementRef, Inject } from '@angular/core';
+import { ElementRef, Inject, EventEmitter } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
@@ -34,6 +34,8 @@ describe('Directive: Option', () => {
 
   it('should create an instance', inject([ImmutableService], (immutable: ImmutableService) => {
     let self = new OptionDirective(immutable);
+    self.select = { ngModel: null, change: new EventEmitter(), open: false, options: [],
+    addOption: () => {}, removeOption: () => {}, setNgModel: () => {} };
     expect(self).toBeTruthy();
   }));
 

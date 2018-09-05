@@ -18,4 +18,4 @@ export * from './lib/text-editor/text-editor.module';
 export * from './lib/timepicker/timepicker.module';
 export * from './lib/bootstrap-select/bootstrap-select.module';
 export * from './lib/select/select.module';
-// export * from './lib/forms.module';
+export * from './lib/forms.module';

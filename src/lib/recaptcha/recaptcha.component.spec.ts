@@ -4,9 +4,8 @@ import { Http } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import { RdAngularFormsModule } from '../forms.module';
-
 import { RecaptchaComponent } from './recaptcha.component';
+import { RecaptchaModule } from './recaptcha.module';
 
 
 let fixture;
@@ -17,7 +16,7 @@ describe('Component: Recaptcha', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        RdAngularFormsModule
+        RecaptchaModule
       ],
       declarations: [
       ],
@@ -35,7 +34,7 @@ describe('Component: Recaptcha', () => {
 
   it('should call displayRecaptcha on ngOnInit', () => {
     // Arrange
-    let spy = spyOn(component, 'displayRecaptcha');
+    let spy = spyOn(component, 'displayRecaptcha').and.callFake(() => {});
     // Act
     component.ngOnInit();
     // Assert
