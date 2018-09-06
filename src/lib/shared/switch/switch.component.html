@@ -1,4 +1,4 @@
 <label class="rd--switch">
-  <input type="checkbox" [attr.checked]="checked" (click)="clicked($event)">
+  <input name="ckbox" type="checkbox" [checked]="checked" (change)="onChange($event)">
   <span class="rd--slider rd--round"></span>
 </label>

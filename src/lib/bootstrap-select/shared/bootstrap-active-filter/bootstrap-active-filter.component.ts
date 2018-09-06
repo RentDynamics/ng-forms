@@ -6,12 +6,12 @@ import {Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class BootstrapActiveFilterComponent {
   @Input() showInactiveItems: boolean = false;
-  @Output() activeSwitchChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() change: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
   }
 
-  activeSwitchChangeHandler(event): void {
-    this.activeSwitchChange.emit(event);
+  onChange(event): void {
+    this.change.emit(event);
   }
 }

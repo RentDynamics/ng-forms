@@ -72,10 +72,9 @@ export class BootstrapDropdownMenuComponent implements AfterViewInit {
     }
   }
 
-  activeSwitchChange(event) {
+  activeSwitchOnChange(event) {
     if (this.showInactiveToggle) {
       this.showInactiveItems = !this.showInactiveItems;
-
       if (isArray(this.list) && this.list.length) {
         this.select.options.forEach((option: Option) => {
           for (let i = 0; i < this.list.length; i++) {

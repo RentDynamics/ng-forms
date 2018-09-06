@@ -1,3 +1,3 @@
-<rd-switch size="small" class="pull-left" style="margin: 15px 56px 0 0;"></rd-switch>
+<rd-switch size="small" class="pull-left" style="margin: 15px 56px 0 0;" (change)="onChange($event)" [checked]="showInactiveItems"></rd-switch>
 <div class="pull-right" [class.inactive]="showInactiveItems" style="font-weight: 500; margin: 10px 8px 0 0;">Show
   inactive</div>
