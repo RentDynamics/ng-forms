@@ -12,5 +12,6 @@ export * from './recaptcha/index';
 export * from './text-editor/index';
 export * from './timepicker/index';
 export * from './bootstrap-select/index';
-export * from './select/select.module';
+export * from './select/index';
 export * from './forms.module';
+export * from './ui-mask.directive';
