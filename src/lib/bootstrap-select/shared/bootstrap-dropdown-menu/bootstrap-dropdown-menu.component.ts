@@ -1,4 +1,4 @@
-import {Component, Input, AfterViewInit} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChange, SimpleChanges} from '@angular/core';
 
 import { equals, isArray } from '@rd/core';
 
@@ -14,7 +14,7 @@ import { Option } from '../../../select/shared/option';
     KENDO_DROPDOWN_ANIMATION
   ]
 })
-export class BootstrapDropdownMenuComponent implements AfterViewInit {
+export class BootstrapDropdownMenuComponent implements OnChanges {
   @Input() select: Select;
   @Input() list: any[] = [];
   @Input() filterBy: string;
@@ -29,12 +29,13 @@ export class BootstrapDropdownMenuComponent implements AfterViewInit {
   constructor() {
   }
 
-  ngAfterViewInit() {
-    if (this.showInactiveToggle && !this.showInactiveItems) {
+  ngOnChanges(newVal: SimpleChanges) {
+    let listChange: SimpleChange = newVal['list'];
+
+    if (this.showInactiveToggle && !this.showInactiveItems && listChange) {
       // I tried hard to not use a timeout here. I found other solutions but
       // it required that the 'caller' implement a solution and I didn't want
       // the 'caller' to have to do anything more than set the @Input's
-      // and it would just work
       setTimeout(() => {
         this.hideInactiveItemsOnInit();
       }, 2000);
