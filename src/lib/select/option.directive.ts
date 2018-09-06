@@ -12,7 +12,7 @@ export class OptionDirective implements OnInit, Option {
   @Input() select: Select;
   @Input() title: string;
   @Input() value: any;
-  @HostListener('click', ['$event']) click() {
+  @HostListener('click', ['$event']) click(event?: any) {
     return this.setActive();
   };
   @HostBinding('hidden') get isHidden() {
@@ -25,9 +25,9 @@ export class OptionDirective implements OnInit, Option {
 
   ngOnInit() {
     if (!this.select)
-      throw Error('Select not provided to OptionDirective');
+      return console.warn('Select not provided to OptionDirective');
     if (!this.immutable)
-      throw Error('ImmutableService not provided to OptionDirective');
+      return console.warn('ImmutableService not provided to OptionDirective');
 
     this.select.addOption(this);
   }
