@@ -3,7 +3,7 @@ export * from './blur/index';
 export * from './button-group/index';
 export * from './color-picker/index';
 export * from './combo/index';
-export * from './datepicker/datepicker.module';
+export * from './datepicker/index';
 export * from './helpers';
 export * from './input/input.module';
 export * from './ng-model-input';
