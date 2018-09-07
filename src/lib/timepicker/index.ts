@@ -1,1 +1,2 @@
-export * from './combo/index';
+export * from './timepicker.module';
+export * from './combo/timepicker-combo-select.component';

@@ -24,11 +24,13 @@ import {
     InjectionToken
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { DatepickerHelper } from '../shared/datepicker-helper';
+import { DATE_TYPE_ENUM } from '../shared/date-type.enum';
+import { DatepickerQuickAccessButtonDirective } from '../shared/datepicker-quick-access-button.directive';
 
+declare var $: any;
 declare var moment: any;
 
-import { NgModelInputValueAccessor } from '../../ng-model-input';
-import { DatepickerHelper, DatepickerQuickAccessButton, DATE_TYPE_ENUM } from '../shared/index';
 
 @Component({
     selector: 'rd-datepicker',
@@ -43,7 +45,7 @@ import { DatepickerHelper, DatepickerQuickAccessButton, DATE_TYPE_ENUM } from '.
 export class DatepickerComponent extends DatepickerHelper implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
     @Input() momentFormat: string = 'M/D/Y';
     @Output() change = new EventEmitter();
-    @ContentChildren(DatepickerQuickAccessButton) quickAccessBtns: QueryList<DatepickerQuickAccessButton>;
+    @ContentChildren(DatepickerQuickAccessButtonDirective) quickAccessBtns: QueryList<DatepickerQuickAccessButtonDirective>;
 
     constructor(elementRef: ElementRef) {
         super();
@@ -83,7 +85,7 @@ export class DatepickerComponent extends DatepickerHelper implements OnInit, Aft
         this.toggle(false);
     }
 
-    isActiveQuickAccessButton(quickAccessBtn: DatepickerQuickAccessButton) {
+    isActiveQuickAccessButton(quickAccessBtn: DatepickerQuickAccessButtonDirective) {
         let pluginValue = $(this.calendarElem).pickmeup('get_date', false);
 
         if (!pluginValue)
@@ -92,7 +94,7 @@ export class DatepickerComponent extends DatepickerHelper implements OnInit, Aft
         return moment(pluginValue).format(this.momentFormat) === moment().add(quickAccessBtn.value, 'd').format(this.momentFormat)
     }
 
-    onQuickAccessButtonClick(quickAccessBtn: DatepickerQuickAccessButton) {
+    onQuickAccessButtonClick(quickAccessBtn: DatepickerQuickAccessButtonDirective) {
         let newVal: any = moment().add(quickAccessBtn.value, 'd');
 
         this.setNgModel(newVal);

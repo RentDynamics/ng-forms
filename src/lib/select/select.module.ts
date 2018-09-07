@@ -6,11 +6,10 @@ import { FormsModule } from '@angular/forms';
 
 import { RdAngularCoreModule } from '@rd/core';
 import { SelectDirective } from './select.directive';
-import {
-  SelectToggleBtnDirective,
-  OptionDirective, SelectTitleDirective,
-  SelectDropdownDirective
-} from './shared/index';
+import { SelectToggleBtnDirective } from './select-toggle-btn.directive';
+import { OptionDirective } from './option.directive';
+import { SelectTitleDirective } from './select-title.directive';
+import { SelectDropdownDirective } from './select-dropdown.directive';
 
 @NgModule({
   imports: [

@@ -16,6 +16,7 @@ import { CoreApiServiceMock } from '@rd/core/testing';
 
 import { RdAngularFormsModule } from '../../forms.module';
 import { DatepickerComboSelectComponent } from './datepicker-combo-select.component';
+import { DatepickerModule } from '../datepicker.module';
 
 declare var moment;
 
@@ -29,7 +30,7 @@ describe('Component: DatepickerComboSelect', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        RdAngularFormsModule
+        DatepickerModule
       ],
       providers: [
         { provide: CoreApiService, useValue: CoreApiServiceMock },

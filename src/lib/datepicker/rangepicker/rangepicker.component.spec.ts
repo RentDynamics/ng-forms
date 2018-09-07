@@ -11,7 +11,9 @@ import {
 } from '@angular/core/testing';
 
 import { RangepickerComponent } from './rangepicker.component';
-import { DatepickerHelper, DatepickerQuickAccessButton, DatepickerToggleButton, DATE_TYPE_ENUM, DropdownBuilderComponent } from '../shared/index';
+import { DatepickerQuickAccessButtonDirective } from '../shared/datepicker-quick-access-button.directive';
+import { DropdownBuilderComponent } from '../shared/dropdown-builder/dropdown-builder.component';
+import { DatepickerToggleButtonDirective } from '../shared/datepicker-toggle-button.directive';
 
 let component: TestHostComponent;
 let fixture: ComponentFixture<TestHostComponent>;
@@ -43,7 +45,7 @@ describe('Component: Rangepicker', () => {
   // simple style
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TestHostComponent, RangepickerComponent, DatepickerQuickAccessButton, DropdownBuilderComponent, DatepickerToggleButton],
+      declarations: [TestHostComponent, RangepickerComponent, DatepickerQuickAccessButtonDirective, DropdownBuilderComponent, DatepickerToggleButtonDirective],
       imports: [FormsModule],
       providers: [{
         provide: ElementRef,
@@ -58,7 +60,7 @@ describe('Component: Rangepicker', () => {
     fixture = TestBed.createComponent(TestHostComponent);
     component = fixture.componentInstance;
     quickAccessBtnEl = fixture.debugElement.query(By.css('button')); // find hero
-    fixture.detectChanges();
+    // fixture.detectChanges();
   })
 
   it('should create an instance', () => {

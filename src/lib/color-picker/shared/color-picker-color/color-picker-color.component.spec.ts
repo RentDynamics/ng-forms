@@ -11,7 +11,7 @@ import {
 
 import { ColorPickerColorComponent } from './color-picker-color.component';
 import { ColorPickerComponent } from '../../color-picker.component';
-import { RdAngularFormsModule } from '../../../forms.module';
+import { ColorPickerModule } from '../../color-picker.module';
 
 let component: ColorPickerColorComponent;
 let fixture: ComponentFixture<ColorPickerColorComponent>;
@@ -23,7 +23,9 @@ describe('Component: ColorPickerColor', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       //declarations: [ColorPickerColorComponent, ColorPickerComponent],
-      imports: [RdAngularFormsModule],
+      imports: [
+        ColorPickerModule
+      ],
       providers: [{ provide: ColorPickerComponent, useValue: {} }]
     });
 

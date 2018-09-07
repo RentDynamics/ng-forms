@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/spec",
+    "types": [
+      "jasmine",
+      "bootstrap",
+      "ckeditor",
+      "jquery",
+      "moment-range",
+      "toastr"
+    ]
+  },
+  "files": [
+    "src/test.ts"
+  ],
+  "include": [
+    "./**/*.spec.ts",
+    "./**/*.d.ts"
+  ]
+}

@@ -13,7 +13,8 @@ import { ImmutableService } from '@rd/core';
 
 import { SelectModule } from './select.module';
 import { SelectDirective } from './select.directive';
-import { Select, OptionDirective, SelectTitleDirective, SelectToggleBtnDirective } from './shared/index';
+import { SelectToggleBtnDirective } from './select-toggle-btn.directive';
+import { OptionDirective } from './option.directive';
 
 let component: MockSelectWrapperComponent;
 let fixture: ComponentFixture<MockSelectWrapperComponent>;

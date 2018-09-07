@@ -4,9 +4,8 @@ import { Http } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import { RdAngularFormsModule } from '../forms.module';
-
 import { RecaptchaComponent } from './recaptcha.component';
+import { RecaptchaModule } from './recaptcha.module';
 
 
 let fixture;
@@ -14,10 +13,12 @@ let component: RecaptchaComponent;
 
 describe('Component: Recaptcha', () => {
 
+  var spy;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        RdAngularFormsModule
+        RecaptchaModule
       ],
       declarations: [
       ],
@@ -26,7 +27,9 @@ describe('Component: Recaptcha', () => {
     });
     fixture = TestBed.createComponent(RecaptchaComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // Arrange
+    spy = spyOn(component, 'displayRecaptcha').and.callFake(() => {});
+    // fixture.detectChanges();
   });
 
   it('should create an instance', () => {
@@ -34,8 +37,6 @@ describe('Component: Recaptcha', () => {
   });
 
   it('should call displayRecaptcha on ngOnInit', () => {
-    // Arrange
-    let spy = spyOn(component, 'displayRecaptcha');
     // Act
     component.ngOnInit();
     // Assert
@@ -44,13 +45,13 @@ describe('Component: Recaptcha', () => {
 
   it('should emit the success value on verifyRecaptchaCallback', () => {
     // Arrange
-    let spy = spyOn(component.success, 'emit');
+    let spySuccess = spyOn(component.success, 'emit');
     let response = 'kajhvkjaglsdkjfbkajshdvflakshdfv';
     // Act
     component.verifyRecaptchaCallback(response);
     // Assert
-    expect(spy).toHaveBeenCalled();
-    expect(spy).toHaveBeenCalledWith(response);
+    expect(spySuccess).toHaveBeenCalled();
+    expect(spySuccess).toHaveBeenCalledWith(response);
   });
 
 });

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Select } from '../select';
+import { Select } from '../select/select';
 
 @Component({
   selector: 'rd-bootstrap-select',

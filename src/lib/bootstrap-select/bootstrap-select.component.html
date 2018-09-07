@@ -1,6 +1,6 @@
 <div class="btn-group bootstrap-select show-tick">
-  <button rdSelectToggleBtn [select]="select" type="button" class="btn dropdown-toggle" [disabled]="disabled" [ngClass]="btnClass" rdSelectTitle (title)="title = $event"
-          [aggregateAfter]="aggregateAfter">
+  <button rdSelectToggleBtn [select]="select" type="button" class="btn dropdown-toggle" [disabled]="disabled" [ngClass]="btnClass" 
+    rdSelectTitle (title)="title = $event" [aggregateAfter]="aggregateAfter">
     <span class="filter-option pull-left">
       <span *ngIf="!title">{{defaultTitle}}</span>
       <span *ngIf="title">{{title}}</span>

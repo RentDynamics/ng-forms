@@ -2,7 +2,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AfterViewInit, Component, ViewChild, DebugElement } from '@angular/core';
-import { NgControl } from '@angular/forms';
+import { NgControl, NgModel } from '@angular/forms';
+import { of as observableOf } from 'rxjs';
 
 import { CoreApiService, ImmutableService, TextMsgItApiService } from '@rd/core';
 import { CoreApiServiceMock } from '@rd/core/testing';
@@ -28,6 +29,7 @@ describe('Directive: UiMask', () => {
       providers: [
         ImmutableService,
         { provide: NgControl, useValue: {} },
+        { provide: NgModel, useValue: { control: { valueChanges: observableOf(null) } } },
         { provide: CoreApiService, useValue: CoreApiServiceMock },
         { provide: TextMsgItApiService, useValue: CoreApiServiceMock },
       ]
