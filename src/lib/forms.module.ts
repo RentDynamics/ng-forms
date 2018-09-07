@@ -19,6 +19,7 @@ import { ColorPickerModule } from './color-picker/color-picker.module';
 import { InputModule } from './input/input.module';
 import { ApiFilterGroupModule } from './api-filter-group/api-filter-group.module';
 import { DatepickerModule } from './datepicker/datepicker.module';
+import { SwitchModule } from './shared/switch/switch.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DatepickerModule } from './datepicker/datepicker.module';
     TimepickerModule,
     RecaptchaModule,
     BlurModule,
+    SwitchModule,
     BootstrapSelectModule,
     ButtonGroupModule,
     TextEditorModule,
@@ -61,7 +63,6 @@ import { DatepickerModule } from './datepicker/datepicker.module';
     ApiFilterGroupModule,
     DatepickerModule,
   ],
-  providers: [
-  ]
+  providers: []
 })
-export class RdAngularFormsModule { }
+export class RdAngularFormsModule {}
