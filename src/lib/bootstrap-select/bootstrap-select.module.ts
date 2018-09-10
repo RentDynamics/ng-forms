@@ -27,7 +27,8 @@ import { BootstrapActiveFilterComponent } from "./shared/bootstrap-active-filter
     BootstrapActionsBoxComponent,
     BootstrapDropdownMenuComponent,
     BootstrapFilterComponent,
-    SelectModule
+    SelectModule,
+    BootstrapActiveFilterComponent
   ]
 })
 export class BootstrapSelectModule {}
