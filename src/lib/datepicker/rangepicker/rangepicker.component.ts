@@ -58,6 +58,12 @@ export class RangepickerComponent extends DatepickerHelper implements OnInit, Af
 
     ngOnInit() {
         this.ngModel = this.ngModel || [];
+        if (!this.min) {
+          this.min = moment('2000-01-01', 'YYYY-MM-DD');
+        }
+        if (!this.max) {
+          this.max = moment('2100-01-01', 'YYYY-MM-DD');
+        }
     }
 
     ngAfterContentInit() {
