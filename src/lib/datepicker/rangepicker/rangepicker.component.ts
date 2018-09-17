@@ -42,6 +42,8 @@ import { DatepickerQuickAccessButtonDirective } from '../shared/datepicker-quick
 })
 export class RangepickerComponent extends DatepickerHelper implements OnInit, AfterContentInit, AfterViewInit, OnDestroy {
     @Input() momentFormat: string = 'M/D/Y';
+    @Input() min: any | string;
+    @Input() max: any | string;
     @Output() change = new EventEmitter();
     @ContentChildren(DatepickerQuickAccessButtonDirective) quickAccessBtns: QueryList<DatepickerQuickAccessButtonDirective>;
 
@@ -56,6 +58,12 @@ export class RangepickerComponent extends DatepickerHelper implements OnInit, Af
 
     ngOnInit() {
         this.ngModel = this.ngModel || [];
+        if (!this.min) {
+          this.min = moment('2000-01-01', 'YYYY-MM-DD');
+        }
+        if (!this.max) {
+          this.max = moment('2100-01-01', 'YYYY-MM-DD');
+        }
     }
 
     ngAfterContentInit() {
@@ -77,15 +85,18 @@ export class RangepickerComponent extends DatepickerHelper implements OnInit, Af
         var self = this;
         this.calendarElem = $(this.elem).find('.calendar')[0];
 
-        $(this.calendarElem).pickmeup({
-            date: this.ngModel ? moment(this.ngModel, this.momentFormat) : moment(),
-            flat: true,
-            mode: 'range',
-            first_day: 0,
-            change: (formatDate) => {
-                self.onChange.call(self, self.getPluginValueAsFormatStringArray());
-            }
-        });
+      let options = {
+        date: this.ngModel ? moment(this.ngModel, this.momentFormat) : moment(),
+        flat: true,
+        mode: 'range',
+        min: moment.isMoment(this.min) ? this.min.toDate() : moment(this.min, this.momentFormat).toDate(),
+        max: moment.isMoment(this.max) ? this.max.toDate() : moment(this.max, this.momentFormat).toDate(),
+        first_day: 0,
+        change: (formatDate) => {
+          self.onChange.call(self, self.getPluginValueAsFormatStringArray());
+        }
+      };
+      $(this.calendarElem).pickmeup(options);
 
         this.pickmeup = $('.calendar').data('pickmeup-options');
     }
