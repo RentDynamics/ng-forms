@@ -20,7 +20,6 @@ import { InputModule } from './input/input.module';
 import { ApiFilterGroupModule } from './api-filter-group/api-filter-group.module';
 import { DatepickerModule } from './datepicker/datepicker.module';
 import { SwitchModule } from './shared/switch/switch.module';
-import { CheckboxButtonModule } from './checkbox-button/checkbox-button.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +40,6 @@ import { CheckboxButtonModule } from './checkbox-button/checkbox-button.module';
     TextEditorModule,
     ComboSelectModule,
     PickmeupModule,
-    CheckboxButtonModule,
     SelectBuilderModule,
     ColorPickerModule,
     InputModule,
@@ -61,7 +59,6 @@ import { CheckboxButtonModule } from './checkbox-button/checkbox-button.module';
     PickmeupModule,
     SelectBuilderModule,
     ColorPickerModule,
-    CheckboxButtonModule,
     InputModule,
     ApiFilterGroupModule,
     DatepickerModule,

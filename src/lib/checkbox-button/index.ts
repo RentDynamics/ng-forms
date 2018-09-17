@@ -1,2 +1,3 @@
 export { CheckboxButtonGroupDirective } from './checkbox-button-group.directive';
-export * from './checkbox-button.component';
+export { CheckboxButtonComponent } from './checkbox-button.component';
+export { CheckboxButtonModule } from './checkbox-button.module';
