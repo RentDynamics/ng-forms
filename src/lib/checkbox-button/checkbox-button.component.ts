@@ -21,7 +21,7 @@ export class CheckboxButtonComponent implements OnInit {
     this.id = this.id.replace(" ", "").toLowerCase();
   }
 
-  toggleSelected($evt){
+  toggleSelected(){
     this.selected = !this.selected;
     let newVal = {};
     if(this.selected){
