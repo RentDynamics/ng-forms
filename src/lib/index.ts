@@ -6,6 +6,7 @@ export * from './combo/index';
 export * from './datepicker/index';
 export * from './helpers';
 export * from './input/index';
+export * from './checkbox-button/index';
 export * from './ng-model-input';
 export * from './shared/index';
 export * from './recaptcha/index';
