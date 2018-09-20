@@ -16,20 +16,6 @@
     "lib": [
       "es2017",
       "dom"
-    ],
-    "paths": {
-      "@rd/core": [
-        "node_modules/@rd/core/"
-      ],
-      "@rd/core/*": [
-        "node_modules/@rd/core/*"
-      ],
-      "forms": [
-        "dist/"
-      ],
-      "forms/*": [
-        "dist/forms/*"
-      ]
-    }
+    ]
   }
 }
