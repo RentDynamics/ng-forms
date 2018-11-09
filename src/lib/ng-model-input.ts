@@ -1,7 +1,7 @@
 import { Input, Output, EventEmitter, forwardRef, ContentChildren, Component, FactoryProvider, QueryList, Type } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-export function noop() { };
+export function noop() { }
 
 export class NgModelInputValueAccessor {
     provide: any = NG_VALUE_ACCESSOR;
@@ -24,12 +24,12 @@ export class NgModelInput implements ControlValueAccessor {
 
     }
 
-    //From ControlValueAccessor interface
+    // From ControlValueAccessor interface
     registerOnChange(fn: any) {
         this.onNgModelChanged = fn;
     }
 
-    //From ControlValueAccessor interface
+    // From ControlValueAccessor interface
     registerOnTouched(fn: any) {
         this.onNgModelTouched = fn;
     }
@@ -41,7 +41,7 @@ export class NgModelInput implements ControlValueAccessor {
         this.onNgModelChanged(newVal);
     }
 
-    //From ControlValueAccessor interface
+    // From ControlValueAccessor interface
     writeValue(newVal: any) {
         this.ngModel = newVal;
         /* emit to one more avenue which is when a sibling component needs to listen to

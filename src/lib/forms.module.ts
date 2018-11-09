@@ -7,7 +7,7 @@ import { UiMaskDirective } from './ui-mask.directive';
 
 import { TimepickerModule } from './timepicker/timepicker.module';
 import { SelectModule } from './select/select.module';
-import { BlurModule } from './blur/blur.module'
+import { BlurModule } from './blur/blur.module';
 import { RecaptchaModule } from './recaptcha/recaptcha.module';
 import { BootstrapSelectModule } from './bootstrap-select/bootstrap-select.module';
 import { ButtonGroupModule } from './button-group/button-group.module';
@@ -27,7 +27,6 @@ import { SwitchModule } from './shared/switch/switch.module';
   ],
   imports: [
     CommonModule,
-
     RdAngularCoreModule,
     FormsModule,
     SelectModule,
