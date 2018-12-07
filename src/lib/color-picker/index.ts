@@ -1,2 +1,3 @@
-export * from './color-picker.component';
-export * from './shared/index';
+export { ColorPickerComponent } from './color-picker.component';
+export { ColorPickerColorComponent, Color } from './shared/index';
+export { ColorPickerModule } from './color-picker.module';

@@ -16,15 +16,15 @@ import { ComboMultiSelectComponent } from './multi-select/combo-multi-select.com
   declarations: [
     ComboSelectComponent,
     ComboMultiSelectComponent,
-    ComboSelectOptionDirective, 
-    ComboSelectInputDirective, 
+    ComboSelectOptionDirective,
+    ComboSelectInputDirective,
     ComboSelectToggleBtnDirective,
   ],
   exports: [
     ComboSelectComponent,
     ComboMultiSelectComponent,
-    ComboSelectOptionDirective, 
-    ComboSelectInputDirective, 
+    ComboSelectOptionDirective,
+    ComboSelectInputDirective,
     ComboSelectToggleBtnDirective,
     SelectBuilderModule,
   ]

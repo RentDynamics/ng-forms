@@ -1,4 +1,4 @@
 export interface Color {
-  color: string,
-  backgroundColor: string
+  color: string;
+  backgroundColor: string;
 }

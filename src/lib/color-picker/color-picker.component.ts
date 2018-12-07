@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, InjectionTo
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { NgModelInput, NgModelInputValueAccessor } from '../ng-model-input';
-import { Color } from './shared';
+import { Color } from './shared/color';
 
 @Component({
     selector: 'rd-color-picker',
