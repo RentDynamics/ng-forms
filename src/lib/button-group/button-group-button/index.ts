@@ -1,1 +1,1 @@
-export * from './button-group-button.directive';
+export {ButtonGroupButtonDirective} from './button-group-button.directive';

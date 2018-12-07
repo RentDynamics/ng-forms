@@ -34,7 +34,7 @@ import { SwitchModule } from './shared/switch/switch.module';
     RecaptchaModule,
     BlurModule,
     SwitchModule,
-    BootstrapSelectModule,
+    // BootstrapSelectModule,
     ButtonGroupModule,
     TextEditorModule,
     ComboSelectModule,
