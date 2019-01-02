@@ -18,6 +18,7 @@ export class BootstrapDropdownMenuComponent implements OnChanges {
   @Input() select: Select;
   @Input() list: any[] = [];
   @Input() filterBy: string;
+  @Input() hideActionsBox: boolean = false;
 
   // START: These 4 inputs are used for hiding/showing inactive items
   @Input() showInactiveToggle: boolean = false;
