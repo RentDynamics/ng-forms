@@ -24,24 +24,6 @@ npm install @rd/forms @rd/core jquery pickmeup moment moment-range ckeditor --sa
 
 ```
 
-### angular-cli.json one-time configuration
-
-```json
-
-      "styles": [
-        "../node_modules/pickmeup/css/pickmeup.css",
-      ],
-      "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/moment/min/moment.min.js",
-        "../node_modules/moment-range/dist/moment-range.js",
-        "../node_modules/pickmeup/js/jquery.pickmeup.js",
-        "../node_modules/ckeditor/ckeditor.js",
-        "../node_modules/ckeditor/config.js"
-      ],
-
-```
-
 ## how to import
 
 ```TypeScript  
