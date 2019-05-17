@@ -173,7 +173,7 @@ that many components require
 - Compatible with [rdSelect][multiple="true"]
 - Value(s) may be object(s), number(s), or string(s) (depending on Select -> multiple status)
 - Not tied to any view so it can be used anywhere for anything select (could probably even be used on something like the [rd-list-legend-filter])
-- Notifies the SelectDirective of its existance onInit() so that it can then do calculations on whether this
+- Notifies the SelectDirective of its existence onInit() so that it can then do calculations on whether this
 option is selected or not based on the Select -> ngModel value
 - Exposes isActive() callback to apply whatever selected/active class you want
 
