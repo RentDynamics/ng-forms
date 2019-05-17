@@ -15,8 +15,6 @@
 #### This module contains any javascript code that is directly related to html forms. (custom input components/directives etc)
 It is reliant on the @rd/core, jquery, pickmeup, moment, and ckeditor modules. This module currently contains components/directives such as button-group-input, text-editor, datepicker, rdSelect, etc.
 
-http://rd.github.io
-
 ## Installation
 
 ```
@@ -238,7 +236,7 @@ Presentation-layer component which works hand-in-hand with any directive which i
 
 In order to release this package automatically, you must format the commit message properly so that when it is merged into master, it will semantically release the new changes based on commit msg type and previously tagged version
 
-Don't forget to expose any new additions publically, ensure everything is accessible via the public_api.ts
+Don't forget to expose any new additions publicly, ensure everything is accessible via the public_api.ts
 
 
 [Code review guidelines for this project](CODE_REVIEWS.md)
