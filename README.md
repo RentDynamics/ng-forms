@@ -12,19 +12,19 @@
 
 <!--[![Build Status](https://travis-ci.org/ng2select/bootstrap.svg?branch=master)](https://travis-ci.org/ng2select/bootstrap)-->
 
-#### this module contains any javascript code that is directly related to html forms. (custom input components/directives etc)
-it is reliant on the @rd/core, jquery, pickmeup, moment, and ckeditor modules. this module currently contains components/directives such as button-group-input, text-editor, datepicker, rdSelect, etc.
+#### This module contains any javascript code that is directly related to html forms. (custom input components/directives etc)
+It is reliant on the @rd/core, jquery, pickmeup, moment, and ckeditor modules. This module currently contains components/directives such as button-group-input, text-editor, datepicker, rdSelect, etc.
 
 http://rd.github.io
 
-## installation
+## Installation
 
 ```
 npm install @rd/forms @rd/core jquery pickmeup moment moment-range ckeditor --save
 
 ```
 
-## how to import
+## How to import
 
 ```TypeScript  
 
@@ -32,19 +32,19 @@ import { RdAngularFormsModule } from '@rd/forms';
 
 ```
 
-## examples
-the following section contains documentation on any components, directives, or modules which are exported by the RdAngularFormsModule
+## Examples
+The following section contains documentation on any components, directives, or modules which are exported by the RdAngularFormsModule
 
 ### NgModelInput (base-class)
-beneficial if you are looking to implement a custom component with a dual-bound [(ngModel)]
+Beneficial if you are looking to implement a custom component with a dual-bound [(ngModel)]
 
 ### NgModelInputValueAccessor
-must be provided along with the NgModelInput base class in order to obtain a dual-bound ngModel (using helper classes)
+Must be provided along with the NgModelInput base class in order to obtain a dual-bound ngModel (using helper classes)
 
-- simply extend NgModelInput and provide your component a new NgModelInputValueAccessor(componentName)
+- Simply extend NgModelInput and provide your component a new NgModelInputValueAccessor(componentName)
 in order to have a fully-functional dual-bound ngModel-ready component
 
-#### example usage
+#### Example usage
 
 ```TypeScript
 
@@ -74,12 +74,12 @@ export class TextEditorDirective extends NgModelInput implements OnInit, AfterVi
 
 
 ### Datepicker ```rd-datepicker```
-this datepicker might be useful to you if you need a regular date-picker component w/quick-access-buttons (ie. reporting datepicker)
+This datepicker might be useful to you if you need a regular date-picker component w/quick-access-buttons (ie. reporting datepicker)
 
-- if you need a date-range picker, refer to the Rangepicker component defined below
-- allows you to define the html for the [rd-datepicker-toggle-button] and the [rd-datepicker-quick-access-button] array
+- If you need a date-range picker, refer to the Rangepicker component defined below
+- Allows you to define the html for the [rd-datepicker-toggle-button] and the [rd-datepicker-quick-access-button] array
 
-#### example
+#### Example
 
 ```HTML
 
@@ -98,7 +98,7 @@ this datepicker might be useful to you if you need a regular date-picker compone
 
 ### Rangepicker ```rd-rangepicker```
 
-#### example
+#### Example
 
 ```HTML
 
@@ -116,9 +116,9 @@ this datepicker might be useful to you if you need a regular date-picker compone
 ```
 
 ### TextEditorDirective ```rd-text-editor, [rd-text-editor]```
-beneficial if you want a fast ckeditor text-editor which is fully configurable and already bound to an [(ngModel)]
+Beneficial if you want a fast ckeditor text-editor which is fully configurable and already bound to an [(ngModel)]
 
-#### example
+#### Example
 
 ```HTML
 
@@ -126,7 +126,7 @@ beneficial if you want a fast ckeditor text-editor which is fully configurable a
 
 ```
 
-#### inline example
+#### Inline example
 
 ```HTML
 
@@ -137,19 +137,19 @@ beneficial if you want a fast ckeditor text-editor which is fully configurable a
 ```
 
 ## SelectModule
-specific to rdSelect and rdSelect directives only
+This module is specific to rdSelect and its corresponding directives only
 
 
 ### SelectDirective ```[rdSelect], [rdSelect][multiple="true"]```
-this directive makes it easy to get one or more selected values of any list items quickly and easily via its exposed 
+This directive makes it easy to get one or more selected values of any list items quickly and easily via its exposed 
 [(ngModel)] and (change)="onChange($event)" emitter
 
-- responsible for UI-agnostic generic select/multiselect functionality
-- intended to be paired with one or many child rdOption directives
+- Responsible for UI-agnostic generic select/multiselect functionality
+- Intended to be paired with one or many child rdOption directives
 - rdSelectTitle, rdSelectToggleBtn directives are optional
-- this directive implements the Select interface
+- This directive implements the Select interface
 
-#### basic example
+#### Basic example
 
 ```HTML
 
@@ -169,17 +169,17 @@ this directive makes it easy to get one or more selected values of any list item
 ```
 
 ### OptionDirective ```[rdOption]```
-when this directive is paired with a Select, they work together to provide the select/multiselect functionality
+When this directive is paired with a Select, they work together to provide the select/multiselect functionality
 that many components require
 
-- compatible with [rdSelect][multiple="true"]
-- value(s) may be object(s), number(s), or string(s) (depending on Select -> multiple status)
-- not tied to any view so it can be used anywhere for anything select (could probably even be used on something like the [rd-list-legend-filter])
-- notifies the SelectDirective of its existance onInit() so that it can then do calculations on whether this
+- Compatible with [rdSelect][multiple="true"]
+- Value(s) may be object(s), number(s), or string(s) (depending on Select -> multiple status)
+- Not tied to any view so it can be used anywhere for anything select (could probably even be used on something like the [rd-list-legend-filter])
+- Notifies the SelectDirective of its existance onInit() so that it can then do calculations on whether this
 option is selected or not based on the Select -> ngModel value
-- exposes isActive() callback to apply whatever selected/active class you want
+- Exposes isActive() callback to apply whatever selected/active class you want
 
-#### example
+#### Example
 ```HTML
 		<li *ngFor="let unit of units" rdOption #option="rdOption" [select]="selectName" [title]="unit.address" [value]="unit.id" [class.active]="option.isActive()">
 			<a><span>{{unit.address}}</span></a>
@@ -188,11 +188,11 @@ option is selected or not based on the Select -> ngModel value
 
 
 ### BootstrapSelect ```rd-bootstrap-select```
-presentation-layer component which works hand-in-hand with any directive which implements the Select interface
+Presentation-layer component which works hand-in-hand with any directive which implements the Select interface
 
-- you can make your own Select presentation-layer component(s)!!
+- You can make your own Select presentation-layer component(s)!!
 
-#### example
+#### Example
 
 ```HTML
 
@@ -234,11 +234,7 @@ presentation-layer component which works hand-in-hand with any directive which i
 
 <!-- <iframe src="http://embed.plnkr.co/GeHGKI/?show=preview" frameborder="0" width="100%" height="500"></iframe> -->
 
-_powered by:_
-https://rentdynamics.com +
-https://angular.io
-
-## release
+## Contributing
 
 In order to release this package automatically, you must format the commit message properly so that when it is merged into master, it will semantically release the new changes based on commit msg type and previously tagged version
 
@@ -250,6 +246,10 @@ Don't forget to expose any new additions publically, ensure everything is access
 [Coding standards for this project](CODING_STANDARDS.md)
 
 [Contribution guidelines for this project](CONTRIBUTING.md)
+
+_powered by:_
+https://rentdynamics.com +
+https://angular.io
 
 [npm-icon]: https://nodei.co/npm/@rd/forms.svg?downloads=true
 [npm-icon-link]: https://npmjs.org/package/@rd/forms
