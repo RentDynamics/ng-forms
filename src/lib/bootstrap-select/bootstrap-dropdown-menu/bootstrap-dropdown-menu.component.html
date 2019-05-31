@@ -1,5 +1,4 @@
 <ul class="dropdown-menu">
-  <rd-bootstrap-filter *ngIf="list && list.length && filterBy" [list]="list" [filterBy]="filterBy" (updateList)="updateList($event)"></rd-bootstrap-filter>
   <rd-bootstrap-actions-box *ngIf="select?.multiple && hideActionsBox == false" [select]="select"></rd-bootstrap-actions-box>
   <rd-bootstrap-active-filter *ngIf="showInactiveToggle" (change)="activeSwitchOnChange($event)" [showInactiveItems]="showInactiveItems"></rd-bootstrap-active-filter>
   <ng-content></ng-content>
