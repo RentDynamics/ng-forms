@@ -1,4 +1,5 @@
 import { Directive, Input, Output, EventEmitter, OnInit, HostBinding, HostListener } from '@angular/core';
+import { Highlightable } from '@angular/cdk/a11y';
 
 import { equals, ImmutableService } from '@rd/core';
 import { Option } from './option';
@@ -8,7 +9,7 @@ import { Select } from './select';
   selector: '[rdOption]',
   exportAs: 'rdOption'
 })
-export class OptionDirective implements OnInit, Option {
+export class OptionDirective implements OnInit, Option, Highlightable {
   @Input() select: Select;
   @Input() title: string;
   @Input() value: any;
@@ -18,8 +19,12 @@ export class OptionDirective implements OnInit, Option {
   @HostBinding('hidden') get isHidden() {
     return this.hidden;
   }
+  @HostBinding('class.highlight') get isHighlighted() {
+    return this._isHighlighted;
+  }
 
   hidden: boolean = false;
+  private _isHighlighted = false;
 
   constructor(private immutable: ImmutableService) { }
 
@@ -33,7 +38,7 @@ export class OptionDirective implements OnInit, Option {
   }
 
   isActive() {
-    if(!this.select)
+    if (!this.select)
       return false;
 
     if (this.select.multiple)
@@ -49,13 +54,25 @@ export class OptionDirective implements OnInit, Option {
     return this.setActiveSingle();
   }
 
+  getLabel() {
+    return this.title || this.value;
+  }
+
+  setActiveStyles() {
+    this._isHighlighted = true;
+  }
+
+  setInactiveStyles() {
+    this._isHighlighted = false;
+  }
+
   protected isActiveMultiple() {
     return this.select && this.select.ngModel && this.select.ngModel.length &&
       this.select.ngModel.findIndex(ngModelItem => equals(ngModelItem, this.value)) > -1;
   }
 
   protected setActiveSingle() {
-    if(this.select.ngModel === this.value && this.select.nullable)
+    if (this.select.ngModel === this.value && this.select.nullable)
       return this.select.setNgModel(null);
     this.select.setNgModel(this.value);
     this.select.open = false;
@@ -73,7 +90,7 @@ export class OptionDirective implements OnInit, Option {
   }
 
   ngOnDestroy() {
-    if(this.select)
+    if (this.select)
       this.select.removeOption(this);
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@rd/forms",
-  "version": "0.0.0-development",
+  "version": "0.0.3-development",
   "main": "bundles/forms.umd.js",
   "repository": {
     "url": "https://github.com/RentDynamics/ng-forms"
@@ -48,6 +48,7 @@
     "@angular-devkit/build-angular": "0.7.5",
     "@angular-devkit/build-ng-packagr": "0.7.5",
     "@angular/animations": "6.1.0",
+    "@angular/cdk": "8.0.0",
     "@angular/cli": "6.1.5",
     "@angular/common": "6.1.0",
     "@angular/compiler": "6.1.0",
