@@ -20,7 +20,6 @@ export class OptionDirective implements OnInit, Option {
   }
 
   hidden: boolean = false;
-  private _isHighlighted = false;
 
   constructor(private immutable: ImmutableService) { }
 
