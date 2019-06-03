@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChange, SimpleChanges} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 
 import { equals, isArray } from '@rd/core';
 
@@ -17,7 +17,6 @@ import { Option } from '../../select/option';
 export class BootstrapDropdownMenuComponent implements OnChanges {
   @Input() select: Select;
   @Input() list: any[] = [];
-  @Input() filterBy: string;
   @Input() hideActionsBox: boolean = false;
 
   // START: These 4 inputs are used for hiding/showing inactive items
@@ -43,25 +42,9 @@ export class BootstrapDropdownMenuComponent implements OnChanges {
     }
   }
 
-  updateList(newVal: { array: any[] }) {
-    if (isArray(newVal.array) && newVal.array.length) {
-      this.select.options.forEach((option: Option) => {
-        for (let i = 0; i < newVal.array.length; i++) {
-          if (equals(newVal.array[i], option.value)) {
-            option.hidden = false;
-            break;
-          }
-          else {
-            option.hidden = true;
-          }
-        }
-      });
-    } else {
-      this.select.options.forEach((option: Option) => option.hidden = true);
-    }
-  }
-
   hideInactiveItemsOnInit() {
+    /* Please Note: setting the list items hidden in this way is bad and could cause
+    a laggy user experience */
     if (isArray(this.list) && this.list.length) {
       this.select.options.forEach((option: Option) => {
         for (let i = 0; i < this.list.length; i++) {
@@ -75,6 +58,8 @@ export class BootstrapDropdownMenuComponent implements OnChanges {
   }
 
   activeSwitchOnChange(event) {
+    /* Please Note: setting the list items hidden in this way is bad and could cause
+    a laggy user experience */
     if (this.showInactiveToggle) {
       this.showInactiveItems = !this.showInactiveItems;
       if (isArray(this.list) && this.list.length) {

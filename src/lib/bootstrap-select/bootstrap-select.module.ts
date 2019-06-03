@@ -8,7 +8,6 @@ import { BootstrapSelectComponent } from './bootstrap-select.component';
 import { BootstrapToggleBtnComponent } from './bootstrap-toggle-btn/index';
 import { BootstrapActionsBoxComponent } from './bootstrap-actions-box/index';
 import { BootstrapDropdownMenuComponent } from './bootstrap-dropdown-menu/index';
-import { BootstrapFilterComponent } from './bootstrap-filter/index';
 import { BootstrapActiveFilterComponent } from './bootstrap-active-filter/index';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { BootstrapActiveFilterComponent } from './bootstrap-active-filter/index'
     BootstrapToggleBtnComponent,
     BootstrapActionsBoxComponent,
     BootstrapDropdownMenuComponent,
-    BootstrapFilterComponent,
     BootstrapActiveFilterComponent
   ],
   exports: [
@@ -26,7 +24,6 @@ import { BootstrapActiveFilterComponent } from './bootstrap-active-filter/index'
     BootstrapToggleBtnComponent,
     BootstrapActionsBoxComponent,
     BootstrapDropdownMenuComponent,
-    BootstrapFilterComponent,
     SelectModule,
     BootstrapActiveFilterComponent
   ]

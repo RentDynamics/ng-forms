@@ -33,7 +33,7 @@ export class OptionDirective implements OnInit, Option {
   }
 
   isActive() {
-    if(!this.select)
+    if (!this.select)
       return false;
 
     if (this.select.multiple)
@@ -55,7 +55,7 @@ export class OptionDirective implements OnInit, Option {
   }
 
   protected setActiveSingle() {
-    if(this.select.ngModel === this.value && this.select.nullable)
+    if (this.select.ngModel === this.value && this.select.nullable)
       return this.select.setNgModel(null);
     this.select.setNgModel(this.value);
     this.select.open = false;
@@ -73,7 +73,6 @@ export class OptionDirective implements OnInit, Option {
   }
 
   ngOnDestroy() {
-    if(this.select)
-      this.select.removeOption(this);
+
   }
 }

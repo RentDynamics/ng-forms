@@ -1,5 +1,5 @@
 
-import {debounceTime} from 'rxjs/operators';
+import {debounceTime, takeWhile} from 'rxjs/operators';
 import { AfterViewInit, Directive, Input, Output, OnChanges, EventEmitter, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 
 import { equals } from '@rd/core';
@@ -14,6 +14,7 @@ export class SelectTitleDirective implements OnInit {
   @Input() aggregateAfter: number = 2;
   @Output() title: EventEmitter<string> = new EventEmitter<string>();
 
+  protected alive: boolean = true;
   readonly DEBOUNCE_TIME = 100;
 
   constructor() { }
@@ -22,10 +23,13 @@ export class SelectTitleDirective implements OnInit {
     if (!this.select)
       throw Error('Select not provided to SelectTitleDirective');
 
-    this.select.optionChange$.pipe(debounceTime(this.DEBOUNCE_TIME)).subscribe(newVal => {
+    this.setTitle();
+
+    this.select.optionChange$.pipe(debounceTime(this.DEBOUNCE_TIME), takeWhile(e => this.alive)).subscribe(newVal => {
       this.setTitle();
     });
-    this.select.ngModelChange$.pipe(debounceTime(this.DEBOUNCE_TIME)).subscribe(newVal => {
+
+    this.select.ngModelChange$.pipe(debounceTime(this.DEBOUNCE_TIME), takeWhile(e => this.alive)).subscribe(newVal => {
       this.setTitle();
     });
   }
@@ -58,5 +62,9 @@ export class SelectTitleDirective implements OnInit {
     if (this.select.multiple)
       return this.title.emit(this.getTitleMultiple());
     return this.title.emit(this.getTitle());
+  }
+
+  ngOnDestroy(){
+    this.alive = false;
   }
 }
