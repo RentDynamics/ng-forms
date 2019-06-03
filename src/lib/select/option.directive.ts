@@ -88,9 +88,4 @@ export class OptionDirective implements OnInit, Option, Highlightable {
       this.select.setNgModel(newVal);
     }
   }
-
-  ngOnDestroy() {
-    if (this.select)
-      this.select.removeOption(this);
-  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@rd/forms",
-  "version": "0.0.3-development",
+  "version": "0.0.0-development",
   "main": "bundles/forms.umd.js",
   "repository": {
     "url": "https://github.com/RentDynamics/ng-forms"

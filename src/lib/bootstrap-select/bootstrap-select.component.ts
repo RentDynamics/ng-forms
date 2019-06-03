@@ -23,4 +23,8 @@ export class BootstrapSelectComponent implements OnInit {
   ngOnInit() {
 
   }
+
+  setTitle(newVal) {
+    this.title = newVal;
+  }
 }

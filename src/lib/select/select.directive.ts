@@ -68,4 +68,8 @@ export class SelectDirective extends NgModelInput implements OnInit, Select {
 
     return this.open;
   }
+
+  ngOnDestroy(){
+    this.options = [];
+  }
 }
