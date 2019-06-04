@@ -10,12 +10,14 @@ import { SelectToggleBtnDirective } from './select-toggle-btn.directive';
 import { OptionDirective } from './option.directive';
 import { SelectTitleDirective } from './select-title.directive';
 import { SelectDropdownDirective } from './select-dropdown.directive';
+import { BlurModule } from '../blur/blur.module';
 
 @NgModule({
   imports: [
     RdAngularCoreModule,
     FormsModule,
     CommonModule,
+    BlurModule,
   ],
   declarations: [
     SelectDirective,
@@ -34,6 +36,7 @@ import { SelectDropdownDirective } from './select-dropdown.directive';
     FormsModule,
     CommonModule,
     RdAngularCoreModule,
+    BlurModule,
   ],
   providers: [
   ]
