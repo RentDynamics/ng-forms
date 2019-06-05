@@ -1,6 +1,6 @@
 {
   "name": "@rd/forms",
-  "version": "0.0.0-development",
+  "version": "0.0.10-development",
   "main": "bundles/forms.umd.js",
   "repository": {
     "url": "https://github.com/RentDynamics/ng-forms"
@@ -16,7 +16,8 @@
     "npm": ">=5.6.0"
   },
   "scripts": {
-    "build": "ng b",
+    "prebuild": "rm -rf dist",
+    "build": "ng b && cd dist/forms && npm pack",
     "commit": "git-cz",
     "test": "ng t --code-coverage --watch false",
     "prepush": "npm test",

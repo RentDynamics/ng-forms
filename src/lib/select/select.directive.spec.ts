@@ -85,7 +85,10 @@ describe('Directive: Select', () => {
 
       /* Assert */
       expect(spy.change).toHaveBeenCalled();
-      expect(result).toEqual([2]);
+      expect(result).toEqual([{
+        id: 2,
+        address: '204b'
+      }]);
     }));
 
     it('is NOT invoked when value is written from an external event', inject([ImmutableService], (immutableSvc: ImmutableService) => {
@@ -96,7 +99,10 @@ describe('Directive: Select', () => {
       });
 
       /* Act */
-      component.select.writeValue([2]);
+      component.select.writeValue([{
+        id: 2,
+        address: '204b'
+      }]);
       fixture.detectChanges();
 
       /* Assert */
@@ -128,16 +134,6 @@ describe('Directive: Select', () => {
       /* Assert */
       expect(component.select.options).toBeTruthy();
       expect(component.select.options.length).toBe(4);
-    }));
-
-    xit('decrease when mock component units decrease', inject([], () => {
-      /* Act */
-      component.units.shift();
-      fixture.detectChanges();
-
-      /* Assert */
-      expect(component.select.options).toBeTruthy();
-      expect(component.select.options.length).toBe(2);
     }));
 
     it('optionChange$ emits when addOption() is invoked', inject([ImmutableService], (immutableSvc: ImmutableService) => {
@@ -185,12 +181,18 @@ describe('Directive: Select', () => {
       component.select.ngModelChange$.subscribe(self.subscribeCallback);
 
       /* Act */
-      component.select.setNgModel([2]);
+      component.select.setNgModel([{
+        id: 2,
+        address: '204b'
+      }]);
       fixture.detectChanges();
 
       /* Assert */
       expect(spy.ngModelChange$).toHaveBeenCalled();
-      expect(result).toEqual([2]);
+      expect(result).toEqual([{
+        id: 2,
+        address: '204b'
+      }]);
     }));
 
     it('setNgModel() invokes writeValue()', inject([ImmutableService], (immutableSvc: ImmutableService) => {
@@ -200,12 +202,18 @@ describe('Directive: Select', () => {
       spy.writeValue = spyOn(component.select, 'writeValue').and.callThrough();
 
       /* Act */
-      component.select.setNgModel([2]);
+      component.select.setNgModel([{
+        id: 2,
+        address: '204b'
+      }]);
       fixture.detectChanges();
 
       /* Assert */
       expect(spy.writeValue).toHaveBeenCalled();
-      expect(component.select.ngModel).toEqual([2]);
+      expect(component.select.ngModel).toEqual([{
+        id: 2,
+        address: '204b'
+      }]);
     }));
 
     it('emits when writeValue() is invoked', inject([ImmutableService], (immutableSvc: ImmutableService) => {
@@ -221,12 +229,18 @@ describe('Directive: Select', () => {
       component.select.ngModelChange$.subscribe(self.subscribeCallback);
 
       /* Act */
-      component.select.writeValue([2]);
+      component.select.writeValue([{
+        id: 2,
+        address: '204b'
+      }]);
       fixture.detectChanges();
 
       /* Assert */
       expect(spy.ngModelChange$).toHaveBeenCalled();
-      expect(result).toEqual([2]);
+      expect(result).toEqual([{
+        id: 2,
+        address: '204b'
+      }]);
     }));
 
   });
@@ -243,7 +257,7 @@ describe('Directive: Select', () => {
   </button>
 
 	<ul rdSelectDropdown [select]="select">
-		<li *ngFor="let unit of units" rdOption #option="rdOption" [select]="select" [title]="unit.address" [value]="unit.id" [class.active]="option.isActive()">{{unit.address}}</li>
+		<li *ngFor="let unit of units" rdOption #option="rdOption" [select]="select" [title]="unit.address" [value]="unit" [class.active]="option.isActive()">{{unit.address}}</li>
 	</ul>
 </div>
   `

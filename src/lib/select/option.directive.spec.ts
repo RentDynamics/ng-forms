@@ -42,16 +42,16 @@ describe('Directive: Option', () => {
       inject([ImmutableService], (immutableSvc: ImmutableService) => {
         /* Arrange */
         let result;
-        let self = new OptionDirective(immutableSvc);
+        let optionDirective = new OptionDirective(immutableSvc);
 
-        self.select = select;
-        self.select.multiple = true;
-        self.value = 1;
-        self.select.addOption(self);
-        self.select.setNgModel([1, 2, 3, 4]);
+        optionDirective.select = select;
+        optionDirective.select.multiple = true;
+        optionDirective.value = 1;
+        optionDirective.select.addOption(optionDirective);
+        optionDirective.select.setNgModel([1, 2, 3, 4]);
 
         /* Act */
-        self.ngOnDestroy();
+        optionDirective.ngOnDestroy();
 
         /* Assert */
         expect(select.options.length).toBe(1);
@@ -69,16 +69,16 @@ describe('Directive: Option', () => {
       inject([ImmutableService], (immutableSvc: ImmutableService) => {
         /* Arrange */
         let result;
-        let self = new OptionDirective(immutableSvc);
+        let optionDirective = new OptionDirective(immutableSvc);
 
-        self.select = select;
-        self.select.multiple = true;
-        self.value = 1;
-        self.select.addOption(self);
-        self.select.setNgModel([1, 2, 3, 4]);
+        optionDirective.select = select;
+        optionDirective.select.multiple = true;
+        optionDirective.value = 1;
+        optionDirective.select.addOption(optionDirective);
+        optionDirective.select.setNgModel([1, 2, 3, 4]);
 
         /* Act */
-        result = self.isActive();
+        result = optionDirective.isActive();
 
         /* Assert */
         expect(result).toBeTruthy();
@@ -89,16 +89,16 @@ describe('Directive: Option', () => {
       inject([ImmutableService], (immutableSvc: ImmutableService) => {
         /* Arrange */
         let result;
-        let self = new OptionDirective(immutableSvc);
+        let optionDirective = new OptionDirective(immutableSvc);
 
-        self.select = select;
-        self.select.multiple = true;
-        self.value = 240;
-        self.select.addOption(self);
-        self.select.setNgModel([1, 2, 3, 4]);
+        optionDirective.select = select;
+        optionDirective.select.multiple = true;
+        optionDirective.value = 240;
+        optionDirective.select.addOption(optionDirective);
+        optionDirective.select.setNgModel([1, 2, 3, 4]);
 
         /* Act */
-        result = self.isActive();
+        result = optionDirective.isActive();
 
         /* Assert */
         expect(result).toBeFalsy();
@@ -109,17 +109,17 @@ describe('Directive: Option', () => {
       inject([ImmutableService], (immutableSvc: ImmutableService) => {
         /* Arrange */
         let result;
-        let self = new OptionDirective(immutableSvc);
+        let optionDirective = new OptionDirective(immutableSvc);
 
-        self.select = select;
-        self.select.multiple = true;
-        self.value = 1;
-        self.select.addOption(self);
-        self.select.setNgModel([1, 2, 3, 4]);
+        optionDirective.select = select;
+        optionDirective.select.multiple = true;
+        optionDirective.value = 1;
+        optionDirective.select.addOption(optionDirective);
+        optionDirective.select.setNgModel([1, 2, 3, 4]);
 
         /* Act */
-        self.setActive();
-        result = self.select.ngModel;
+        optionDirective.setActive();
+        result = optionDirective.select.ngModel;
 
         /* Assert */
         expect(result.length).toBe(3);
@@ -138,16 +138,16 @@ describe('Directive: Option', () => {
       inject([ImmutableService], (immutableSvc: ImmutableService) => {
         /* Arrange */
         let result;
-        let self = new OptionDirective(immutableSvc);
+        let optionDirective = new OptionDirective(immutableSvc);
 
-        self.select = select;
-        self.select.multiple = true;
-        self.value = { id: 1 };
-        self.select.addOption(self);
-        self.select.setNgModel([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]);
+        optionDirective.select = select;
+        optionDirective.select.multiple = true;
+        optionDirective.value = { id: 1 };
+        optionDirective.select.addOption(optionDirective);
+        optionDirective.select.setNgModel([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]);
 
         /* Act */
-        result = self.isActive();
+        result = optionDirective.isActive();
 
         /* Assert */
         expect(result).toBeTruthy();
@@ -158,16 +158,16 @@ describe('Directive: Option', () => {
       inject([ImmutableService], (immutableSvc: ImmutableService) => {
         /* Arrange */
         let result;
-        let self = new OptionDirective(immutableSvc);
+        let optionDirective = new OptionDirective(immutableSvc);
 
-        self.select = select;
-        self.select.multiple = true;
-        self.value = { id: 432 };
-        self.select.addOption(self);
-        self.select.setNgModel([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]);
+        optionDirective.select = select;
+        optionDirective.select.multiple = true;
+        optionDirective.value = { id: 432 };
+        optionDirective.select.addOption(optionDirective);
+        optionDirective.select.setNgModel([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]);
 
         /* Act */
-        result = self.isActive();
+        result = optionDirective.isActive();
 
         /* Assert */
         expect(result).toBeFalsy();
@@ -178,17 +178,17 @@ describe('Directive: Option', () => {
       inject([ImmutableService], (immutableSvc: ImmutableService) => {
         /* Arrange */
         let result;
-        let self = new OptionDirective(immutableSvc);
+        let optionDirective = new OptionDirective(immutableSvc);
 
-        self.select = select;
-        self.select.multiple = true;
-        self.value = { id: 1 };
-        self.select.addOption(self);
-        self.select.setNgModel([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]);
+        optionDirective.select = select;
+        optionDirective.select.multiple = true;
+        optionDirective.value = { id: 1 };
+        optionDirective.select.addOption(optionDirective);
+        optionDirective.select.setNgModel([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]);
 
         /* Act */
-        self.setActive();
-        result = self.select.ngModel;
+        optionDirective.setActive();
+        result = optionDirective.select.ngModel;
 
         /* Assert */
         expect(result.length).toBe(3);
