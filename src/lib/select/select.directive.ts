@@ -19,9 +19,9 @@ var count = 1;
   selector: '[rdSelect]',
   exportAs: 'rdSelect',
   providers: [{
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: SelectDirective,
-      multi: true
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: SelectDirective,
+    multi: true
   }]
 })
 export class SelectDirective extends NgModelInput implements OnInit, Select {
@@ -40,13 +40,18 @@ export class SelectDirective extends NgModelInput implements OnInit, Select {
   }
 
   ngOnInit() {
-    if (this.multiple && !this.ngModel)
+    if (this.multiple && !this.ngModel) {
       super.writeValue([]);
+    }
   }
 
   addOption(option: Option) {
     this.options.push(option);
     this.optionChange$.emit(option);
+  }
+
+  hasOption(option: Option) {
+    return this.options.some(opt => equals(opt.value, option.value));
   }
 
   removeOption(option: Option) {
@@ -63,13 +68,14 @@ export class SelectDirective extends NgModelInput implements OnInit, Select {
   }
 
   toggle(newVal?: boolean) {
-    if (isDefined(newVal))
+    if (isDefined(newVal)) {
       this.open = newVal;
+    }
 
     return this.open;
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.options = [];
   }
 }

@@ -28,26 +28,22 @@ export class SelectTitleDirective implements OnInit, AfterViewInit, OnDestroy {
     }
 
     this.select.optionChange$.pipe(
-      // debounceTime(this.DEBOUNCE_TIME), 
+      // debounceTime(this.DEBOUNCE_TIME),
       takeWhile(e => this.alive)
-      ).subscribe(newVal => {
+    ).subscribe(newVal => {
       this.setTitle();
     });
 
     this.select.ngModelChange$.pipe(
-      // debounceTime(this.DEBOUNCE_TIME), 
+      // debounceTime(this.DEBOUNCE_TIME),
       takeWhile(e => this.alive)
-      ).subscribe(newVal => {
+    ).subscribe(newVal => {
       this.setTitle();
     });
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.setTitle();
-  }
-
-  isEqual(a, b): boolean {
-    return JSON.stringify(a) === JSON.stringify(b);
   }
 
   getTitle() {
@@ -56,9 +52,9 @@ export class SelectTitleDirective implements OnInit, AfterViewInit, OnDestroy {
     }
 
     let option = this.select.options.filter(option =>
-      this.select.ngModel && option.value && this.isEqual(option.value, this.select.ngModel))[0];
+      this.select.ngModel && option.value && equals(option.value, this.select.ngModel))[0];
 
-    return option ? option.title : null; 
+    return option ? option.title : null;
   }
 
   getTitleMultiple() {
@@ -69,13 +65,8 @@ export class SelectTitleDirective implements OnInit, AfterViewInit, OnDestroy {
 
     let activeOptions = this.select.options.filter(option => {
       return this.select.ngModel.some(val => {
-        return this.isEqual(option.value, val);
+        return equals(option.value, val);
       });
-      // console.log('** option.value', option.value);
-      // console.log('** select.ngModel', this.select.ngModel);
-      // const result: boolean = this.isEqual(option.value, this.select.ngModel);
-      // console.log('** result', result);
-      // return result;
     });
 
     if (!activeOptions.length) {

@@ -24,27 +24,34 @@ export class OptionDirective implements OnInit, Option {
   constructor(private immutable: ImmutableService) { }
 
   ngOnInit() {
-    if (!this.select)
+    if (!this.select) {
       return console.warn('Select not provided to OptionDirective');
-    if (!this.immutable)
+    }
+    if (!this.immutable) {
       return console.warn('ImmutableService not provided to OptionDirective');
+    }
 
-    this.select.addOption(this);
+    if (!this.select.hasOption(this)) {
+      this.select.addOption(this);
+    }
   }
 
   isActive() {
-    if (!this.select)
+    if (!this.select) {
       return false;
+    }
 
-    if (this.select.multiple)
+    if (this.select.multiple) {
       return this.isActiveMultiple();
+    }
 
     return equals(this.select.ngModel, this.value);
   }
 
   setActive() {
-    if (this.select.multiple)
+    if (this.select.multiple) {
       return this.setActiveMultiple();
+    }
 
     return this.setActiveSingle();
   }
@@ -55,8 +62,9 @@ export class OptionDirective implements OnInit, Option {
   }
 
   protected setActiveSingle() {
-    if (this.select.ngModel === this.value && this.select.nullable)
+    if (this.select.ngModel === this.value && this.select.nullable) {
       return this.select.setNgModel(null);
+    }
     this.select.setNgModel(this.value);
     this.select.open = false;
   }
@@ -73,6 +81,6 @@ export class OptionDirective implements OnInit, Option {
   }
 
   ngOnDestroy() {
-
+    /* Do not remove option here or it will break client-side paging implementations */
   }
 }
