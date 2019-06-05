@@ -87,7 +87,6 @@ describe('Directive: SelectTitle', () => {
                 spy.selectTitle.setTitle = spyOn(component.selectTitle, 'setTitle').and.callThrough();
                 spy.selectTitle.getTitleMultiple = spyOn(component.selectTitle, 'getTitleMultiple').and.callThrough();
                 spy.selectTitle.getTitle = spyOn(component.selectTitle, 'getTitle').and.callThrough();
-                spy.selectTitle.isEqual = spyOn(component.selectTitle, 'isEqual').and.callThrough();
 
                 component.select.ngModelChange$.subscribe(self.subscribeCallback);
 
@@ -103,7 +102,6 @@ describe('Directive: SelectTitle', () => {
                 expect(spy.selectTitle.setTitle).toHaveBeenCalled();
                 expect(spy.selectTitle.getTitleMultiple).toHaveBeenCalled();
                 expect(spy.selectTitle.getTitle).not.toHaveBeenCalled();
-                expect(spy.selectTitle.isEqual).toHaveBeenCalled();
                 expect(component.title).toEqual('204b');
             }));
 
