@@ -9,7 +9,7 @@ import {
     async, inject
 } from '@angular/core/testing';
 
-import { ImmutableService } from '@rd/core';
+import { ImmutableService, equals } from '@rd/core';
 
 import { SelectModule } from './select.module';
 import { SelectDirective } from './select.directive';
@@ -72,7 +72,7 @@ describe('Directive: SelectTitle', () => {
         expect(component.selectTitle).toBeTruthy();
     }));
 
-    describe('multiselect', () => {
+    describe('object multiselect', () => {
 
         it('should set title to "204b" when select.writeValue() is invoked with "204b" object',
             inject([ImmutableService], (immutableSvc: ImmutableService) => {
@@ -105,6 +105,201 @@ describe('Directive: SelectTitle', () => {
                 expect(component.title).toEqual('204b');
             }));
 
+        it('should set title to "103a, 204b" when select.writeValue() is invoked with "103a, 204b" objects',
+            inject([ImmutableService], (immutableSvc: ImmutableService) => {
+                /* Arrange */
+                let result;
+                let self = {
+                    subscribeCallback: (res) => {
+                        result = res;
+                    }
+                };
+                spy.ngModelChange$ = spyOn(self, 'subscribeCallback').and.callThrough();
+                spy.selectTitle.setTitle = spyOn(component.selectTitle, 'setTitle').and.callThrough();
+                spy.selectTitle.getTitleMultiple = spyOn(component.selectTitle, 'getTitleMultiple').and.callThrough();
+                spy.selectTitle.getTitle = spyOn(component.selectTitle, 'getTitle').and.callThrough();
+
+                component.select.ngModelChange$.subscribe(self.subscribeCallback);
+
+                /* Act */
+                component.select.writeValue([
+                    {
+                        id: 1,
+                        address: '103a'
+                    }, {
+                        id: 2,
+                        address: '204b'
+                    }]);
+                fixture.detectChanges();
+
+                /* Assert */
+                expect(spy.ngModelChange$).toHaveBeenCalled();
+                expect(spy.selectTitle.setTitle).toHaveBeenCalled();
+                expect(spy.selectTitle.getTitleMultiple).toHaveBeenCalled();
+                expect(spy.selectTitle.getTitle).not.toHaveBeenCalled();
+                expect(component.title).toEqual('103a, 204b');
+            }));
+
+        it('should set title to "103a, 204b" when select.writeValue() is initially invoked with "103a, 204b, 306c"' +
+            ' objects then third option is clicked',
+            inject([ImmutableService], (immutableSvc: ImmutableService) => {
+                /* Arrange */
+                let result;
+                let self = {
+                    subscribeCallback: (res) => {
+                        result = res;
+                    }
+                };
+                spy.ngModelChange$ = spyOn(self, 'subscribeCallback').and.callThrough();
+                spy.selectTitle.setTitle = spyOn(component.selectTitle, 'setTitle').and.callThrough();
+                spy.selectTitle.getTitleMultiple = spyOn(component.selectTitle, 'getTitleMultiple').and.callThrough();
+                spy.selectTitle.getTitle = spyOn(component.selectTitle, 'getTitle').and.callThrough();
+
+                component.select.ngModelChange$.subscribe(self.subscribeCallback);
+
+                /* Act */
+                component.select.writeValue([
+                    {
+                        id: 1,
+                        address: '103a'
+                    }, {
+                        id: 2,
+                        address: '204b'
+                    }, {
+                        id: 3,
+                        address: '306c'
+                    }]);
+                fixture.detectChanges();
+                /* Act */
+                component.select.options.find(o => equals(o.value, {
+                    id: 3,
+                    address: '306c'
+                })).setActive();
+                fixture.detectChanges();
+
+                /* Assert */
+                expect(spy.ngModelChange$).toHaveBeenCalled();
+                expect(spy.selectTitle.setTitle).toHaveBeenCalled();
+                expect(spy.selectTitle.getTitleMultiple).toHaveBeenCalled();
+                expect(spy.selectTitle.getTitle).not.toHaveBeenCalled();
+                expect(component.title).toEqual('103a, 204b');
+            }));
+
+        it('should set title to "3 selected" when select.writeValue() is invoked with "103a, 204b, 306c" objects',
+            inject([ImmutableService], (immutableSvc: ImmutableService) => {
+                /* Arrange */
+                let result;
+                let self = {
+                    subscribeCallback: (res) => {
+                        result = res;
+                    }
+                };
+                spy.ngModelChange$ = spyOn(self, 'subscribeCallback').and.callThrough();
+                spy.selectTitle.setTitle = spyOn(component.selectTitle, 'setTitle').and.callThrough();
+                spy.selectTitle.getTitleMultiple = spyOn(component.selectTitle, 'getTitleMultiple').and.callThrough();
+                spy.selectTitle.getTitle = spyOn(component.selectTitle, 'getTitle').and.callThrough();
+
+                component.select.ngModelChange$.subscribe(self.subscribeCallback);
+
+                /* Act */
+                component.select.writeValue([
+                    {
+                        id: 1,
+                        address: '103a'
+                    }, {
+                        id: 2,
+                        address: '204b'
+                    }, {
+                        id: 3,
+                        address: '306c'
+                    }]);
+                fixture.detectChanges();
+
+                /* Assert */
+                expect(spy.ngModelChange$).toHaveBeenCalled();
+                expect(spy.selectTitle.setTitle).toHaveBeenCalled();
+                expect(spy.selectTitle.getTitleMultiple).toHaveBeenCalled();
+                expect(spy.selectTitle.getTitle).not.toHaveBeenCalled();
+                expect(component.title).toEqual('3 selected');
+            }));
+
+    });
+
+    describe('object singleselect', () => {
+
+        beforeEach(() => {
+            component.select.multiple = false;
+        });
+
+        it('should set title to "204b" when select.writeValue() is invoked with "204b" object',
+            inject([ImmutableService], (immutableSvc: ImmutableService) => {
+                /* Arrange */
+                let result;
+                let self = {
+                    subscribeCallback: (res) => {
+                        result = res;
+                    }
+                };
+                spy.ngModelChange$ = spyOn(self, 'subscribeCallback').and.callThrough();
+                spy.selectTitle.setTitle = spyOn(component.selectTitle, 'setTitle').and.callThrough();
+                spy.selectTitle.getTitleMultiple = spyOn(component.selectTitle, 'getTitleMultiple').and.callThrough();
+                spy.selectTitle.getTitle = spyOn(component.selectTitle, 'getTitle').and.callThrough();
+
+                component.select.ngModelChange$.subscribe(self.subscribeCallback);
+
+                /* Act */
+                component.select.writeValue({
+                    id: 2,
+                    address: '204b'
+                });
+                fixture.detectChanges();
+
+                /* Assert */
+                expect(spy.ngModelChange$).toHaveBeenCalled();
+                expect(spy.selectTitle.setTitle).toHaveBeenCalled();
+                expect(spy.selectTitle.getTitleMultiple).not.toHaveBeenCalled();
+                expect(spy.selectTitle.getTitle).toHaveBeenCalled();
+                expect(component.title).toEqual('204b');
+            }));
+
+        it('should set title to "103a" when select.writeValue() is invoked with "204b" object then subsequently invoked with "103a" object',
+            inject([ImmutableService], (immutableSvc: ImmutableService) => {
+                /* Arrange */
+                let result;
+                let self = {
+                    subscribeCallback: (res) => {
+                        result = res;
+                    }
+                };
+                spy.ngModelChange$ = spyOn(self, 'subscribeCallback').and.callThrough();
+                spy.selectTitle.setTitle = spyOn(component.selectTitle, 'setTitle').and.callThrough();
+                spy.selectTitle.getTitleMultiple = spyOn(component.selectTitle, 'getTitleMultiple').and.callThrough();
+                spy.selectTitle.getTitle = spyOn(component.selectTitle, 'getTitle').and.callThrough();
+
+                component.select.ngModelChange$.subscribe(self.subscribeCallback);
+
+                /* Act */
+                component.select.writeValue({
+                    id: 2,
+                    address: '204b'
+                });
+                fixture.detectChanges();
+                /* Act */
+                component.select.writeValue({
+                    id: 1,
+                    address: '103a'
+                });
+                fixture.detectChanges();
+
+
+                /* Assert */
+                expect(spy.ngModelChange$).toHaveBeenCalled();
+                expect(spy.selectTitle.setTitle).toHaveBeenCalled();
+                expect(spy.selectTitle.getTitleMultiple).not.toHaveBeenCalled();
+                expect(spy.selectTitle.getTitle).toHaveBeenCalled();
+                expect(component.title).toEqual('103a');
+            }));
+
     });
 
 });
@@ -133,7 +328,7 @@ export class MockSelectWrapperComponent {
     title: string = null;
     units: any[] = [{
         id: 1,
-        address: '103b'
+        address: '103a'
     }, {
         id: 2,
         address: '204b'

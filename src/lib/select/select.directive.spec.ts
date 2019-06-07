@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
@@ -65,13 +65,23 @@ describe('Directive: Select', () => {
     expect(component.select).toBeTruthy();
   }));
 
+  it('when hasOption() is invoked with option which already exists, should return truthy',
+    inject([ImmutableService], (immutable: ImmutableService) => {
+      expect(component.select.hasOption(component.options.first)).toBeTruthy();
+    }));
+
+  it('when hasOption() is invoked with new OptionDirective, should return falsy',
+    inject([ImmutableService], (immutable: ImmutableService) => {
+      expect(component.select.hasOption(new OptionDirective(immutable))).toBeFalsy();
+    }));
+
   describe('change()', () => {
 
     beforeEach(() => {
       fixture.detectChanges();
     });
 
-    it('is invoked when setNgModel() is invoked', inject([ImmutableService], (immutableSvc: ImmutableService) => {
+    it('when setNgModel() is invoked should invoke onChange() method', inject([ImmutableService], (immutableSvc: ImmutableService) => {
       /* Arrange */
       let result;
       spy.change = spyOn(component, 'onChange').and.callFake((newVal) => {
@@ -91,24 +101,25 @@ describe('Directive: Select', () => {
       }]);
     }));
 
-    it('is NOT invoked when value is written from an external event', inject([ImmutableService], (immutableSvc: ImmutableService) => {
-      /* Arrange */
-      let result;
-      spy.change = spyOn(component, 'onChange').and.callFake((newVal) => {
-        result = newVal;
-      });
+    it('when value is written from an external event should NOT invoke onChange() method',
+      inject([ImmutableService], (immutableSvc: ImmutableService) => {
+        /* Arrange */
+        let result;
+        spy.change = spyOn(component, 'onChange').and.callFake((newVal) => {
+          result = newVal;
+        });
 
-      /* Act */
-      component.select.writeValue([{
-        id: 2,
-        address: '204b'
-      }]);
-      fixture.detectChanges();
+        /* Act */
+        component.select.writeValue([{
+          id: 2,
+          address: '204b'
+        }]);
+        fixture.detectChanges();
 
-      /* Assert */
-      expect(spy.change).not.toHaveBeenCalled();
-      expect(result).toBeFalsy();
-    }));
+        /* Assert */
+        expect(spy.change).not.toHaveBeenCalled();
+        expect(result).toBeFalsy();
+      }));
 
   })
 
@@ -118,7 +129,7 @@ describe('Directive: Select', () => {
       fixture.detectChanges();
     });
 
-    it('are defined', inject([], () => {
+    it('should be defined', inject([], () => {
       expect(component.select.options).toBeTruthy();
       expect(component.select.options.length).toBe(3);
     }));
@@ -250,7 +261,7 @@ describe('Directive: Select', () => {
 
 @Component({
   template:
-  `
+    `
 <div rdSelect #select="rdSelect" [(ngModel)]="ngModelAry" [multiple]="true" (change)="onChange($event)" rdBlur (blur)="select.open = false">
 	<button class="btn" rdSelectToggleBtn [select]="select" rdSelectTitle (title)="setTitle($event)">
 		{{title}}
@@ -264,6 +275,7 @@ describe('Directive: Select', () => {
 })
 export class MockSelectWrapperComponent {
   @ViewChild(SelectDirective) select: SelectDirective;
+  @ViewChildren(OptionDirective) options: QueryList<OptionDirective>;
 
   ngModelAry: any[];
   title: string = null;

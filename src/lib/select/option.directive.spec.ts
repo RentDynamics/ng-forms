@@ -38,7 +38,7 @@ describe('Directive: Option', () => {
       select = new SelectDirective();
     }));
 
-    it('when option directive is destoyed should not invoke removeOption on SelectDirective',
+    it('when OptionDirective is destoyed should not invoke removeOption on SelectDirective',
       inject([ImmutableService], (immutableSvc: ImmutableService) => {
         /* Arrange */
         let result;
@@ -52,6 +52,26 @@ describe('Directive: Option', () => {
 
         /* Act */
         optionDirective.ngOnDestroy();
+
+        /* Assert */
+        expect(select.options.length).toBe(1);
+      }));
+
+    it('when OptionDirective is already added and ngOnInit() is invoked should not duplicate Option on SelectDirective',
+      inject([ImmutableService], (immutableSvc: ImmutableService) => {
+        /* Arrange */
+        let result;
+        let optionDirective = new OptionDirective(immutableSvc);
+
+        optionDirective.select = select;
+        optionDirective.select.multiple = true;
+        optionDirective.value = 1;
+        optionDirective.select.addOption(optionDirective);
+        optionDirective.select.setNgModel([1, 2, 3, 4]);
+
+        /* Act */
+        optionDirective.ngOnInit();
+        optionDirective.ngOnInit();
 
         /* Assert */
         expect(select.options.length).toBe(1);

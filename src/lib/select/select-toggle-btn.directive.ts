@@ -14,7 +14,8 @@ export class SelectToggleBtnDirective implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (!this.select)
+    if (!this.select) {
       throw Error('Select not provided to SelectToggleBtnDirective');
+    }
   }
 }
