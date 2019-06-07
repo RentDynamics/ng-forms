@@ -16,8 +16,9 @@
     "npm": ">=5.6.0"
   },
   "scripts": {
-    "prebuild": "rm -rf dist",
-    "build": "ng b && cd dist/forms && npm pack",
+    "build": "ng b",
+    "prepack": "rm -rf dist",
+    "pack": "npm run build && cd dist/forms && npm pack",
     "commit": "git-cz",
     "test": "ng t --code-coverage --watch false",
     "prepush": "npm test",
