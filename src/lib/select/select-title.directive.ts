@@ -18,7 +18,6 @@ export class SelectTitleDirective implements OnInit, AfterViewInit, OnDestroy {
   @Output() title: EventEmitter<string> = new EventEmitter<string>();
 
   protected alive: boolean = true;
-  readonly DEBOUNCE_TIME = 100;
 
   constructor() { }
 
@@ -28,14 +27,12 @@ export class SelectTitleDirective implements OnInit, AfterViewInit, OnDestroy {
     }
 
     this.select.optionChange$.pipe(
-      // debounceTime(this.DEBOUNCE_TIME),
       takeWhile(e => this.alive)
     ).subscribe(newVal => {
       this.setTitle();
     });
 
     this.select.ngModelChange$.pipe(
-      // debounceTime(this.DEBOUNCE_TIME),
       takeWhile(e => this.alive)
     ).subscribe(newVal => {
       this.setTitle();
