@@ -17,6 +17,8 @@
   },
   "scripts": {
     "build": "ng b",
+    "prepack": "rm -rf dist",
+    "pack": "npm run build && cd dist/forms && npm pack",
     "commit": "git-cz",
     "test": "ng t --code-coverage --watch false",
     "prepush": "npm test",

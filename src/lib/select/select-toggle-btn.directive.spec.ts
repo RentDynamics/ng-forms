@@ -15,17 +15,6 @@ import { SelectToggleBtnDirective } from './select-toggle-btn.directive';
 import { OptionDirective } from './option.directive';
 import { SelectModule } from './select.module';
 
-@Component({
-  selector: '[rd-mock-toggle-btn]',
-  template:
-  `
-
-  `
-})
-export class MockSelectToggleBtnComponent {
-
-}
-
 describe('Directive: SelectToggleBtn', () => {
   let select;
   // simple style

@@ -15,6 +15,7 @@ export interface Select {
 
     addOption(option: any): void;
     getActiveOption?(): Option;
+    hasOption(option: any): boolean;
     removeOption(option: any): void;
     setNgModel(newVal: any): void;
     toggle?(newVal?: boolean): boolean;
