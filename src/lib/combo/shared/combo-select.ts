@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, ContentChild, ElementRef, EventEmitter, Renderer } from '@angular/core';
+import { Component, OnInit, Input, Output, ContentChild, ElementRef, EventEmitter } from '@angular/core';
 
 import { SelectOption } from '../../shared';
 import { NgModelInput } from '../../ng-model-input';

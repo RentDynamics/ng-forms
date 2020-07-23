@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, ContentChild, ElementRef, EventEmitter, Renderer } from '@angular/core';
+import { Component, OnInit, Input, Output, ContentChild, ElementRef, EventEmitter } from '@angular/core';
 
 import { SelectOption } from '../select-option';
 import { NgModelInput } from '../../ng-model-input';
@@ -17,7 +17,7 @@ export class SelectBuilderComponent implements OnInit {
 
     private elem = null;
 
-    constructor(private renderer: Renderer, elemRef: ElementRef) {
+    constructor(elemRef: ElementRef) {
         this.elem = elemRef.nativeElement;
     }
 
