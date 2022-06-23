@@ -73,7 +73,7 @@
     "@types/toastr": "2.1.35",
     "bootstrap": "4.0.0",
     "ckeditor": "4.7.3",
-    "codecov": "3.0.4",
+    "codecov": "3.8.3",
     "codelyzer": "4.2.1",
     "commitizen": "2.10.1",
     "core-js": "2.5.4",
